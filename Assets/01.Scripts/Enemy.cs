@@ -12,15 +12,37 @@ public class Enemy : MonoBehaviour
     public bool isDead = false;
 
     public float currentHp {  get; private set; }
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+
+    public virtual float finalMaxHp => baseMaxHp;
+    public virtual float finalMoveSpeed => baseMoveSpeed;
+
+    protected virtual void Start()
     {
-        
+        if (enemyData != null)
+        {
+            name = enemyData.name;
+            baseMaxHp = enemyData.maxHp;
+            baseMoveSpeed = enemyData.moveSpeed;
+        }
+
+        currentHp = finalMaxHp;
     }
 
-    // Update is called once per frame
-    void Update()
+    protected virtual void TakeDamage(float damageAmount) 
     {
-        
+        if (isDead) return;
+
+        currentHp -= damageAmount;
+        Debug.Log($"{name}has take damaged{damageAmount}");
+
+        //if (currentHp <= 0f)
+        //{
+        //    Die();
+        //}
+    } 
+    protected virtual void Die()
+    {
+
+        isDead = true;
     }
 }
