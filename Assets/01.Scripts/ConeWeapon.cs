@@ -1,16 +1,31 @@
 using UnityEngine;
 
-public class ConeWeapon : MonoBehaviour
+public class ConeWeapon : Weapon
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
+    public float attackAngle = 60f;
 
-    // Update is called once per frame
-    void Update()
+    public override void UserWeapon(Vector2 direction)
     {
-        
+        Collider2D[] targets = Physics2D.OverlapCircleAll(transform.position, FinalRange, enemyLayer);
+
+        foreach (Collider2D target in targets)
+        {
+            Vector2 targetDir = (target.transform.position - transform.position).normalized;
+            float angle = Vector2.Angle(direction, targetDir);
+
+            if (angle <= attackAngle)
+            {
+                if (target.TryGetComponent<Enemy>(out Enemy enemy) 
+                {
+                    enemy.TakeDamage(FinalDamage);
+                    OnHitTarget(enemy);
+                }
+            }
+
+        }
+    }
+    protected virtual void OnHitTarget(Enemy enemy)
+    {
+
     }
 }
