@@ -16,6 +16,8 @@ public class Enemy : MonoBehaviour
     public virtual float finalMaxHp => baseMaxHp;
     public virtual float finalMoveSpeed => baseMoveSpeed;
 
+    private Enemy originPrefab;
+
     protected virtual void Start()
     {
         if (enemyData != null)
@@ -40,9 +42,17 @@ public class Enemy : MonoBehaviour
         //    Die();
         //}
     } 
+
+    public void SetPrefab(Enemy prefab)
+    {
+        originPrefab = prefab;
+    }
     protected virtual void Die()
     {
-
+        if (originPrefab != null)
+        {
+            ObjectPoolManager.instance.returnObject(originPrefab, this);
+        }
         isDead = true;
     }
 }
