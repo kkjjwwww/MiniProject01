@@ -5,7 +5,7 @@ using UnityEngine;
 public class EnemyData : ScriptableObject
 {
     public string enemyName;
-    public float maxHP;
+    public float maxHp;
     public float moveSpeed;
 
     
