@@ -47,5 +47,18 @@ public class ObjectPoolManager : MonoBehaviour
             );
         poolDictionary.Add(prefab, newPool);
     }
+
+    public void returnObject<T>(T prefab, T obj) where T : Component
+    {
+        if (poolDictionary.TryGetValue(prefab, out object poolObj))
+        {
+            IObjectPool<T> pool = (IObjectPool<T>)poolObj;
+            pool.Release(obj);
+        } 
+        else
+        {
+            Destroy(obj.gameObject);
+        }
+    }
 }
 
