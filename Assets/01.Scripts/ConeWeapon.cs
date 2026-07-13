@@ -15,9 +15,9 @@ public class ConeWeapon : Weapon
 
             if (angle <= attackAngle)
             {
-                if (target.TryGetComponent<Enemy>(out Enemy enemy) 
+                if (target.TryGetComponent<Enemy>(out Enemy enemy))
                 {
-                    enemy.TakeDamage(FinalDamage);
+                    //enemy.TakeDamage(FinalDamage);
                     OnHitTarget(enemy);
                 }
             }
