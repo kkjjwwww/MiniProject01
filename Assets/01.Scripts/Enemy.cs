@@ -37,10 +37,10 @@ public class Enemy : MonoBehaviour
         currentHp -= damageAmount;
         Debug.Log($"{name}has take damaged{damageAmount}");
 
-        //if (currentHp <= 0f)
-        //{
-        //    Die();
-        //}
+        if (currentHp <= 0f)
+        {
+            Die();
+        }
     } 
 
     public void SetPrefab(Enemy prefab)
