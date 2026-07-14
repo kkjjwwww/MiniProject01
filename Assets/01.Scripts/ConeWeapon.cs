@@ -2,7 +2,8 @@ using UnityEngine;
 
 public class ConeWeapon : Weapon
 {
-    public float attackAngle = 60f;
+    //public float attackAngle = 60f;
+    private ConeWeaponData coneData => weaponData as ConeWeaponData;
 
     public override void CustomizeWeapon(Vector2 direction)
     {
@@ -13,7 +14,7 @@ public class ConeWeapon : Weapon
             Vector2 targetDir = (target.transform.position - transform.position).normalized;
             float angle = Vector2.Angle(direction, targetDir);
 
-            if (angle <= attackAngle)
+            if (angle <= coneData.attackAngle)
             {
                 if (target.TryGetComponent<Enemy>(out Enemy enemy))
                 {
