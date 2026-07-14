@@ -180,7 +180,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Enemy
   enemyData: {fileID: 11400000, guid: 63d16c52c6fd25d4896bc400a697dcb5, type: 2}
-  name: Enemy01
+  enemyName: 
   baseMaxHp: 0
   baseMoveSpeed: 0
   isDead: 0

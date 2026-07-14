@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Rendering;
 
@@ -11,13 +12,12 @@ public class Enemy : MonoBehaviour
 
     public bool isDead = false;
     public float currentHp {  get; private set; }
-
     private float timeHpMultiplier = 1f;
     public virtual float finalMaxHp => baseMaxHp * timeHpMultiplier;
     public virtual float finalMoveSpeed => baseMoveSpeed;
 
     private Enemy originPrefab;
-
+    private Rigidbody2D rb;
     protected Transform playerTransform;
 
     protected virtual void OnEnable()
@@ -33,6 +33,9 @@ public class Enemy : MonoBehaviour
         {
             playerTransform = PlayerController.instance.transform;
         }
+        if (rb == null ) rb = GetComponent<Rigidbody2D>();
+        rb.constraints = RigidbodyConstraints2D.FreezeRotation;
+
     }
 
     public void InitEnemy(Enemy prefab, float hpMultiplier)
@@ -71,5 +74,18 @@ public class Enemy : MonoBehaviour
         }
         isDead = true;
 
+    }
+    protected virtual void Update()
+    {
+        if (isDead || playerTransform == null) return;
+
+        MoveToPlayer();
+    }
+
+    protected virtual void MoveToPlayer()
+    {
+        Vector3 dir = (playerTransform.position - transform.position).normalized;
+        dir.z = 0f;
+        transform
     }
 }
