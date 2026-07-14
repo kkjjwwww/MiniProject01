@@ -6,7 +6,7 @@ public abstract class Weapon : MonoBehaviour
 
     public WeaponData weaponData;
 
-    public string name;
+    public string weaponName;
     public float baseDamage;
     public float baseRange;
     public LayerMask enemyLayer;
@@ -18,7 +18,7 @@ public abstract class Weapon : MonoBehaviour
     {
         if (weaponData != null)
         {
-            name = weaponData.itemName;
+            weaponName = weaponData.itemName;
             baseDamage = weaponData.baseDamage;
             baseRange = weaponData.baseRange;
 
