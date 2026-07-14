@@ -30,6 +30,13 @@ public class Enemy : MonoBehaviour
         currentHp = finalMaxHp;
     }
 
+    public void InitEnemy(Enemy prefab, float hpMultiplier)
+    {
+        SetPrefab(prefab);
+        timeHpMultiplier = hpMultiplier;
+        currentHp = finalMaxHp;
+    }
+
     public virtual void TakeDamage(float damageAmount) 
     {
         if (isDead) return;

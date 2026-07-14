@@ -3,6 +3,11 @@ using System.Collections.Generic;
 
 public class SpawnManager : MonoBehaviour
 {
+    [Tooltip("체력 증가 분기")]
+    public float difficultyInterval = 30f;
+    [Tooltip("페이즈당 체력 증가량")]
+    public float hpIncrease = 0.15f;
+
     public static SpawnManager instance;
 
     [System.Serializable]
@@ -23,6 +28,15 @@ public class SpawnManager : MonoBehaviour
     private float spawnTimer;
 
     private Transform playerTransform;
+
+    private float currentHpMultiplier
+    {
+        get
+        {
+            int intervalsPassed = Mathf.FloorToInt(totalGameTime / difficultyInterval);
+            return 1f + (intervalsPassed * hpIncrease);
+        }
+    }
 
     private void Awake()
     {
@@ -68,7 +82,8 @@ public class SpawnManager : MonoBehaviour
 
         if (enemy != null)
         {
-            enemy.SetPrefab(selectedPrefab);
+            enemy.InitEnemy(selectedPrefab, currentHpMultiplier);
+
             activeEnemies.Add(enemy);
         }
     }
