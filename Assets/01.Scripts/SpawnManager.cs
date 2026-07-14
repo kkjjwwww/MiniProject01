@@ -116,8 +116,10 @@ public class SpawnManager : MonoBehaviour
     private void OnDrawGizmos()
     {
         Vector3 centerPosition = transform.position;
-
-        centerPosition = playerTransform.position;
+        if (playerTransform != null)
+        {
+            centerPosition = playerTransform.position;
+        }
         Gizmos.color = Color.red;
 
         Gizmos.DrawWireSphere(centerPosition, spawnRadius);
