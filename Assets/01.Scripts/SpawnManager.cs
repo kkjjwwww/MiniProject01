@@ -113,4 +113,13 @@ public class SpawnManager : MonoBehaviour
             Debug.Log($"현재 페이즈: {timelinePhases[currentPhaseIndex].phaseName}");
         }
     }
+    private void OnDrawGizmos()
+    {
+        Vector3 centerPosition = transform.position;
+
+        centerPosition = playerTransform.position;
+        Gizmos.color = Color.red;
+
+        Gizmos.DrawWireSphere(centerPosition, spawnRadius);
+    }
 }
