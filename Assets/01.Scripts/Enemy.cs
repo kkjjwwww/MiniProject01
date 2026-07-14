@@ -75,9 +75,13 @@ public class Enemy : MonoBehaviour
         isDead = true;
 
     }
-    protected virtual void Update()
+    protected virtual void FixedUpdate()
     {
-        if (isDead || playerTransform == null) return;
+        if (isDead || playerTransform == null) 
+        {
+            rb.linearVelocity = Vector2.zero;
+            return;
+        }
 
         MoveToPlayer();
     }
@@ -86,6 +90,6 @@ public class Enemy : MonoBehaviour
     {
         Vector3 dir = (playerTransform.position - transform.position).normalized;
         dir.z = 0f;
-        transform
+        rb.linearVelocity = dir * finalMoveSpeed;
     }
 }
