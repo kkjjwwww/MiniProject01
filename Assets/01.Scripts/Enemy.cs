@@ -18,6 +18,8 @@ public class Enemy : MonoBehaviour
 
     private Enemy originPrefab;
 
+    protected Transform playerTransform;
+
     protected virtual void OnEnable()
     {
         if (enemyData != null)
@@ -27,7 +29,10 @@ public class Enemy : MonoBehaviour
             baseMoveSpeed = enemyData.moveSpeed;
         }
         isDead = false;
-        currentHp = finalMaxHp;
+        if (PlayerController.instance != null)
+        {
+            playerTransform = PlayerController.instance.transform;
+        }
     }
 
     public void InitEnemy(Enemy prefab, float hpMultiplier)
