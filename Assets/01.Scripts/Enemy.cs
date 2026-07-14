@@ -5,7 +5,7 @@ public class Enemy : MonoBehaviour
 {
     public EnemyData enemyData;
 
-    public string name;
+    public string enemyName;
     public float baseMaxHp;
     public float baseMoveSpeed;
 
@@ -22,7 +22,7 @@ public class Enemy : MonoBehaviour
     {
         if (enemyData != null)
         {
-            name = enemyData.name;
+            enemyName = enemyData.name;
             baseMaxHp = enemyData.maxHp;
             baseMoveSpeed = enemyData.moveSpeed;
         }
@@ -30,12 +30,12 @@ public class Enemy : MonoBehaviour
         currentHp = finalMaxHp;
     }
 
-    protected virtual void TakeDamage(float damageAmount) 
+    public virtual void TakeDamage(float damageAmount) 
     {
         if (isDead) return;
 
         currentHp -= damageAmount;
-        Debug.Log($"{name}has take damaged{damageAmount}");
+        Debug.Log($"{enemyName}has take damaged{damageAmount}");
 
         if (currentHp <= 0f)
         {
