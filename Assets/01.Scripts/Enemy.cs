@@ -10,10 +10,10 @@ public class Enemy : MonoBehaviour
     public float baseMoveSpeed;
 
     public bool isDead = false;
-
     public float currentHp {  get; private set; }
 
-    public virtual float finalMaxHp => baseMaxHp;
+    private float timeHpMultiplier = 1f;
+    public virtual float finalMaxHp => baseMaxHp * timeHpMultiplier;
     public virtual float finalMoveSpeed => baseMoveSpeed;
 
     private Enemy originPrefab;
