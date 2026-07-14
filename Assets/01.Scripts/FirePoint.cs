@@ -1,5 +1,6 @@
 using System.Runtime.CompilerServices;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class FirePoint : MonoBehaviour
 {
@@ -24,8 +25,10 @@ public class FirePoint : MonoBehaviour
     private void RotateToMouse()
     {
         if (camera == null) return;
-        Vector3 mouseWorldPosition = camera.ScreenToWorldPoint(Input.mousePosition);
+        Vector2 mouseScreenPosition = Mouse.current.position.ReadValue();
+        Vector3 mouseWorldPosition = camera.ScreenToWorldPoint(mouseScreenPosition);
         mouseWorldPosition.z = 0f;
+
         Vector2 dir = (mouseWorldPosition - rotationObject.position).normalized;
 
         float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
