@@ -17,7 +17,7 @@ public class ConeWeapon : Weapon
             {
                 if (target.TryGetComponent<Enemy>(out Enemy enemy))
                 {
-                    //enemy.TakeDamage(FinalDamage);
+                    enemy.TakeDamage(FinalDamage);
                     OnHitTarget(enemy);
                 }
             }

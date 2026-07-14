@@ -3,17 +3,23 @@ using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
+    public static PlayerController instance;
     [SerializeField] float moveSpeed = 5f;
     private Rigidbody2D rb;
     private Vector3 dir;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    private void Awake()
+    {
+        if (instance == null)
+            instance = this;
+        else Destroy(gameObject);
+    }
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
     }
 
-    // Update is called once per frame
+    
     void Update()
     {
         if (Keyboard.current == null ) return;
