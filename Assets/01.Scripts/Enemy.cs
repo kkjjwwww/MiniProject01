@@ -89,7 +89,7 @@ public class Enemy : MonoBehaviour
     protected virtual void MoveToPlayer()
     {
         Vector3 dir = (playerTransform.position - transform.position).normalized;
-        dir.z = 0f;
-        rb.linearVelocity = dir * finalMoveSpeed;
+            
+            rb.linearVelocity = dir * finalMoveSpeed;
     }
 }
