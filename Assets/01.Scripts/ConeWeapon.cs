@@ -4,7 +4,7 @@ public class ConeWeapon : Weapon
 {
     public float attackAngle = 60f;
 
-    public override void UserWeapon(Vector2 direction)
+    public override void CustomizeWeapon(Vector2 direction)
     {
         Collider2D[] targets = Physics2D.OverlapCircleAll(transform.position, FinalRange, enemyLayer);
 

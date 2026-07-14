@@ -9,9 +9,13 @@ public abstract class Weapon : MonoBehaviour
     public string weaponName;
     public float baseDamage;
     public float baseRange;
+    public float baseCoolDown;
     public LayerMask enemyLayer;
 
+    private float coolDownTimer;
+
     public virtual float FinalDamage => baseDamage;
+    public virtual float FinalCoolDown => baseCoolDown;
     public virtual float FinalRange => baseRange;
 
     protected virtual void Start()
@@ -24,6 +28,20 @@ public abstract class Weapon : MonoBehaviour
 
         }
     }
-    public abstract void UserWeapon(Vector2 direction);
+    protected virtual void Update()
+    {
+        if (coolDownTimer > 0f)
+        {
+            coolDownTimer -= Time.deltaTime;
+        }
+    }
+    public void Attack(Vector2 dir)
+    {
+        if (coolDownTimer > 0f) return;
+        coolDownTimer = FinalCoolDown;
+
+        CustomizeWeapon(dir);
+    }
+    public abstract void CustomizeWeapon(Vector2 direction);
  
 }

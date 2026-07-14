@@ -6,11 +6,11 @@ public class FirePoint : MonoBehaviour
 {
     [SerializeField] private Transform rotationObject;
 
-    private Camera camera;
+    private Camera mainCamera;
     
     void Start()
     {
-        camera = Camera.main;
+        mainCamera = Camera.main;
         if (rotationObject == null )
         {
             rotationObject = transform;
@@ -24,9 +24,9 @@ public class FirePoint : MonoBehaviour
 
     private void RotateToMouse()
     {
-        if (camera == null) return;
+        if (mainCamera == null) return;
         Vector2 mouseScreenPosition = Mouse.current.position.ReadValue();
-        Vector3 mouseWorldPosition = camera.ScreenToWorldPoint(mouseScreenPosition);
+        Vector3 mouseWorldPosition = mainCamera.ScreenToWorldPoint(mouseScreenPosition);
         mouseWorldPosition.z = 0f;
 
         Vector2 dir = (mouseWorldPosition - rotationObject.position).normalized;
