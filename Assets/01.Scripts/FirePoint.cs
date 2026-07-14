@@ -1,3 +1,4 @@
+using System.Runtime.CompilerServices;
 using UnityEngine;
 
 public class FirePoint : MonoBehaviour
@@ -5,7 +6,7 @@ public class FirePoint : MonoBehaviour
     [SerializeField] private Transform rotationObject;
 
     private Camera camera;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    
     void Start()
     {
         camera = Camera.main;
@@ -14,12 +15,11 @@ public class FirePoint : MonoBehaviour
             rotationObject = transform;
         }
     }
-
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        
+        RotateToMouse();
     }
+
 
     private void RotateToMouse()
     {
