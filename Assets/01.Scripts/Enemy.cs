@@ -1,6 +1,7 @@
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Rendering;
+using DG.Tweening;
 
 public class Enemy : MonoBehaviour
 {
@@ -20,8 +21,22 @@ public class Enemy : MonoBehaviour
     private Rigidbody2D rb;
     protected Transform playerTransform;
 
+    private SpriteRenderer spriteRenderer;
+    private Color originalColor;
+    private Tweener hitTweener;
+    
+    protected virtual void Awake()
+    {
+        spriteRenderer = GetComponent<SpriteRenderer>();
+        if (spriteRenderer != null)
+        {
+            originalColor = spriteRenderer.color;
+        }
+    }
+
     protected virtual void OnEnable()
     {
+        spriteRenderer.color = originalColor;
         if (enemyData != null)
         {
             enemyName = enemyData.name;
@@ -51,6 +66,16 @@ public class Enemy : MonoBehaviour
 
         currentHp -= damageAmount;
         Debug.Log($"{enemyName}has take damaged{damageAmount}");
+        if (spriteRenderer != null )
+        {
+            if (hitTweener != null && hitTweener.IsActive())
+            {
+                hitTweener.Kill();
+                spriteRenderer.color = originalColor;
+            }
+            spriteRenderer.color = Color.red;
+            hitTweener = spriteRenderer.DOColor(originalColor, 0.2f).SetEase(Ease.OutQuad);
+        }
 
         if (currentHp <= 0f)
         {
@@ -75,6 +100,10 @@ public class Enemy : MonoBehaviour
         isDead = true;
 
     }
+    private void OnDisable()
+    {
+        KillTween();
+    }
     protected virtual void FixedUpdate()
     {
         if (isDead || playerTransform == null) 
@@ -91,5 +120,17 @@ public class Enemy : MonoBehaviour
         Vector3 dir = (playerTransform.position - transform.position).normalized;
             
             rb.linearVelocity = dir * finalMoveSpeed;
+    }
+    private void KillTween()
+    {
+        if (hitTweener.IsActive())
+        {
+            hitTweener.Kill();
+        }
+        spriteRenderer.color = originalColor;
+    }
+    private void OnDestroy()
+    {
+        KillTween();
     }
 }
