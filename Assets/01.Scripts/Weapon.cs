@@ -25,7 +25,7 @@ public abstract class Weapon : MonoBehaviour
             weaponName = weaponData.itemName;
             baseDamage = weaponData.baseDamage;
             baseRange = weaponData.baseRange;
-
+            baseCoolDown = weaponData.attackCoolDown;
         }
     }
     protected virtual void Update()
