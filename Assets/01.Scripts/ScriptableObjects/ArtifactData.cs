@@ -1,15 +1,12 @@
+using NUnit.Framework;
 using UnityEngine;
+using System.Collections.Generic;
 
-public enum ArtifactType
-{
-    StatModifier,
-    TriggeredEffect,
-}
 
 [CreateAssetMenu(fileName = "NewArtifactData", menuName = "Item/ArtifactData")]     
 public class ArtifactData : ItemData
 {
-    public ArtifactType artfifactType;
+    public List<ArtifactEffect> effects = new List<ArtifactEffect>();
 
-    public float effectCoolDown;
+   
 }
