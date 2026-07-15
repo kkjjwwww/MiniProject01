@@ -93,6 +93,10 @@ public class Enemy : MonoBehaviour
     }
     protected virtual void Die()
     {
+        if (SpawnManager.instance != null)
+        {
+            SpawnManager.instance.OnEnemyDespawn(this);
+        }
         if (originPrefab != null)
         {
             ObjectPoolManager.instance.returnObject(originPrefab, this);
