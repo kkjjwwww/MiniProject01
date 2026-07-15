@@ -5,6 +5,9 @@ public class PlayerController : MonoBehaviour
 {
     public static PlayerController instance;
     [SerializeField] float moveSpeed = 5f;
+
+    [SerializeField] private Weapon currentWeapon;
+    [SerializeField] private Transform rotationPivot;
     private Rigidbody2D rb;
     private Vector3 dir;
 
@@ -36,10 +39,23 @@ public class PlayerController : MonoBehaviour
 
         dir = new Vector3(x, y).normalized;
 
+        
+        Attack();
+        
+
     }
 
     private void FixedUpdate()
     {
         rb.linearVelocity = dir * moveSpeed;
+    }
+    private void Attack()
+    {
+        if (currentWeapon != null && rotationPivot != null)
+        {
+            Vector2 attackDir = rotationPivot.right;
+
+            currentWeapon.Attack(attackDir);
+        }
     }
 }
