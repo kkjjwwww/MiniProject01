@@ -1,16 +1,26 @@
 using UnityEngine;
 
-public class ArtifactEffect_StatModify : MonoBehaviour
+[CreateAssetMenu(fileName = "NewStatModifyEffect", menuName = "Item/Effects/StatModify")]
+public class ArtifactEffect_StatModify : ArtifactEffect
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public ModifyStatType statType;
+    public float modifyValue;
+
+    public override void OnApply(PlayerController player, int level)
     {
-        
+        float totalValue = modifyValue * level;
+        if (PlayerStats.instance != null)
+        {
+            PlayerStats.instance.ModifyStat(statType, totalValue);
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    public override void OnRemove(PlayerController player, int level)
     {
-        
+        float totalValue = modifyValue * level;
+        if (PlayerStats.instance != null)
+        {
+            PlayerStats.instance.ModifyStat(statType, -totalValue);
+        }
     }
 }

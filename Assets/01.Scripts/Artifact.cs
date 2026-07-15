@@ -5,14 +5,50 @@ public class Artifact : MonoBehaviour
     public ArtifactData artifactData;
     protected PlayerController player;
 
-    public virtual void Init(PlayerController playerContoller)
+    public int currentLevel = 1;
+
+    public virtual void Init(PlayerController playerContoller,ArtifactData data)
     {
         player = playerContoller;
-        OnEquip();
-    }
-    protected virtual void OnEquip()
-    {
+        artifactData = data;
 
+        ApplyAllEffects();
+    }
+    
+    private void ApplyAllEffects()
+    {
+        if (player == null || artifactData == null) return;
+         foreach (var effect in artifactData.effects)
+        {
+            effect.OnApply(player, currentLevel);
+        }
+    }
+
+    public void LevelUp()
+    {
+        RemoveAllEffects();
+
+        currentLevel++;
+
+        ApplyAllEffects();
+    }
+
+    private void Update()
+    {
+        if (player == null || artifactData == null) return;
+
+        foreach(var effect in artifactData.effects)
+        {
+            effect.OnUpdate(player, currentLevel);
+        }
+    }
+    private void RemoveAllEffects()
+    {
+        if (player == null || artifactData == null) return;
+        foreach (var effect in artifactData.effects)
+        {
+            effect.OnRemove(player,currentLevel);
+        }
     }
    
 }
