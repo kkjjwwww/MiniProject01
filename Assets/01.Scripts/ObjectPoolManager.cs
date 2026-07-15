@@ -14,7 +14,7 @@ public class ObjectPoolManager : MonoBehaviour
         {
             instance = this;
         } else Destroy(gameObject);
-        DontDestroyOnLoad(gameObject);
+        
     }
 
     public T Get<T>(T prefab, Vector3 position, Quaternion rotation,int defaultCapacity = 10, int maxSize = 50) where T : Component

@@ -65,7 +65,7 @@ public class Enemy : MonoBehaviour
         if (isDead) return;
 
         currentHp -= damageAmount;
-        Debug.Log($"{enemyName}has take damaged{damageAmount}");
+        Debug.Log($"{enemyName}has take damaged{damageAmount} {currentHp}/{finalMaxHp}");
         if (spriteRenderer != null )
         {
             if (hitTweener != null && hitTweener.IsActive())
