@@ -3,6 +3,8 @@ using UnityEngine;
 public class ConeWeapon : Weapon
 {
     //public float attackAngle = 60f;
+    [SerializeField] private LineRenderer lineRenderer;
+    
     private ConeWeaponData coneData => weaponData as ConeWeaponData;
 
     public override void CustomizeWeapon(Vector2 direction)
@@ -26,6 +28,10 @@ public class ConeWeapon : Weapon
         }
     }
     protected virtual void OnHitTarget(Enemy enemy)
+    {
+
+    }
+    private void DrawRange()
     {
 
     }
