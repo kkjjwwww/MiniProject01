@@ -24,6 +24,9 @@ public class Enemy : MonoBehaviour
     private SpriteRenderer spriteRenderer;
     private Color originalColor;
     private Tweener hitTweener;
+
+    [SerializeField] private ExpToken expTokenPrefab;
+    [SerializeField] private float expValue = 10;
     
     protected virtual void Awake()
     {
@@ -97,6 +100,9 @@ public class Enemy : MonoBehaviour
         {
             SpawnManager.instance.OnEnemyDespawn(this);
         }
+
+        DropExpToken();
+
         if (originPrefab != null)
         {
             ObjectPoolManager.instance.returnObject(originPrefab, this);
@@ -136,5 +142,17 @@ public class Enemy : MonoBehaviour
     private void OnDestroy()
     {
         KillTween();
+    }
+
+    private void DropExpToken()
+    {
+        if (expTokenPrefab != null) return;
+
+        if (ObjectPoolManager.instance != null)
+        {
+            ExpToken token = ObjectPoolManager.instance.Get(expTokenPrefab,transform.position,Quaternion.identity);
+            token.InitToken(expTokenPrefab,expValue);
+        }
+        
     }
 }

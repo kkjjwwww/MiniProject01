@@ -18,7 +18,7 @@ public class ExpToken : MonoBehaviour
             playerTransform = PlayerController.instance.transform;
         }
     }
-    private void InitToken(ExpToken prefab, float value)
+    public void InitToken(ExpToken prefab, float value)
     {
         originPrefab = prefab;
         expValue = value;
