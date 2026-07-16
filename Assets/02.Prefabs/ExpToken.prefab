@@ -142,5 +142,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ExpToken
   expValue: 10
-  moveSpeed: 3
-  magnetRange: 2
+  moveSpeed: 5
+  magnetRange: 1.5
