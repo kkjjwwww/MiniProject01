@@ -17,4 +17,5 @@ MonoBehaviour:
   itemDescription: 
   itemIcon: {fileID: 0}
   type: 0
-  effects: []
+  effects:
+  - {fileID: 0}

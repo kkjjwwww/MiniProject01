@@ -51,7 +51,7 @@ public class ExpToken : MonoBehaviour
     {
         if (PlayerController.instance != null)
         {
-            //player 경험치 증가 함수 추가
+            PlayerController.instance.AddExp(expValue);
             Debug.Log($"경험치 {expValue} 획득");
         }
         if (originPrefab != null && ObjectPoolManager.instance != null)

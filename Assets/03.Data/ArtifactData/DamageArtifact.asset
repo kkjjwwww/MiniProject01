@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f17aee0e3524a7488ffd3e8915359b7, type: 3}
   m_Name: DamageArtifact
   m_EditorClassIdentifier: Assembly-CSharp::ArtifactEffect_StatModify
-  statType: 0
-  modifyValue: 0
+  statType: 2
+  modifyValue: 0.1
