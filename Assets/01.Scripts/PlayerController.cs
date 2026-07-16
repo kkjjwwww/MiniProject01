@@ -66,7 +66,10 @@ public class PlayerController : MonoBehaviour
     {
         currentExp += value;
         Debug.Log($"현재 경험치{currentExp}/{maxExp}");
-
+        if (UIManager.instance != null)
+        {
+            UIManager.instance.UpdateExpUI(currentExp, maxExp, currentLevel);
+        }
         while (currentExp >= maxExp)
         {
             LevelUp();
@@ -79,6 +82,12 @@ public class PlayerController : MonoBehaviour
 
         maxExp = Mathf.Round(maxExp * increaseMaxExpPerLevel);
         Debug.Log($"레벨업 현재레벨{currentLevel}");
+
+        if(UIManager.instance != null)
+        {
+            UIManager.instance.UpdateExpUI(currentExp, maxExp, currentLevel);
+        }
+
         LevelUpAchieve();
     }
     private void LevelUpAchieve()
