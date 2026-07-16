@@ -138,6 +138,8 @@ MonoBehaviour:
   baseMaxHp: 0
   baseMoveSpeed: 0
   isDead: 0
+  expTokenPrefab: {fileID: -2420228921530202196, guid: c29d220321d35e6418d1210d070075a9, type: 3}
+  expValue: 10
 --- !u!58 &-6823837039375505961
 CircleCollider2D:
   m_ObjectHideFlags: 0

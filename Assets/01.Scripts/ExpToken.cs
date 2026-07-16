@@ -12,7 +12,7 @@ public class ExpToken : MonoBehaviour
 
     private void OnEnable()
     {
-        isTargetingPlayer = true;
+        isTargetingPlayer = false;
         if (PlayerController.instance != null)
         {
             playerTransform = PlayerController.instance.transform;
@@ -41,7 +41,7 @@ public class ExpToken : MonoBehaviour
 
             if (Vector3.Distance(transform.position, playerTransform.position) < 0.2f)
             {
-
+                DrainExp();
             }
         }
     }

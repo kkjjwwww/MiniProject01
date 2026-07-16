@@ -146,7 +146,7 @@ public class Enemy : MonoBehaviour
 
     private void DropExpToken()
     {
-        if (expTokenPrefab != null) return;
+        if (expTokenPrefab == null) return;
 
         if (ObjectPoolManager.instance != null)
         {
