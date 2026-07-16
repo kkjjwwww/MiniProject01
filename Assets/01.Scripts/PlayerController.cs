@@ -83,7 +83,7 @@ public class PlayerController : MonoBehaviour
     }
     private void LevelUpAchieve()
     {
-        Time.timeScale = 0f;
+        //Time.timeScale = 0f;
         //레벨업 UI 띄우기
     }
 }
