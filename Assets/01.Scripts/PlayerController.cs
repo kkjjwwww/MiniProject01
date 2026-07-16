@@ -11,6 +11,11 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D rb;
     private Vector3 dir;
 
+    public int currentLevel = 1;
+    public float currentExp = 0f;
+    public float maxExp = 100;
+    [SerializeField] private float increaseMaxExpPerLevel = 1.2f;
+
     private void Awake()
     {
         if (instance == null)
@@ -39,10 +44,8 @@ public class PlayerController : MonoBehaviour
 
         dir = new Vector3(x, y).normalized;
 
-        
         Attack();
         
-
     }
 
     private void FixedUpdate()
@@ -57,5 +60,30 @@ public class PlayerController : MonoBehaviour
 
             currentWeapon.Attack(attackDir);
         }
+    }
+
+    public void AddExp(float value)
+    {
+        currentExp += value;
+        Debug.Log($"현재 경험치{currentExp}/{maxExp}");
+
+        while (currentExp >= maxExp)
+        {
+            LevelUp();
+        }
+    }
+    private void LevelUp()
+    {
+        currentExp -= maxExp;
+        currentLevel++;
+
+        maxExp = Mathf.Round(maxExp * increaseMaxExpPerLevel);
+        Debug.Log($"레벨업 현재레벨{currentLevel}");
+        LevelUpAchieve();
+    }
+    private void LevelUpAchieve()
+    {
+        Time.timeScale = 0f;
+        //레벨업 UI 띄우기
     }
 }

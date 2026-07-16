@@ -27,6 +27,8 @@ public class ExpToken : MonoBehaviour
     private void Update()
     {
         if (playerTransform == null) { return; }
+
+        // magentRange 사거리 안에 플레이어 들어올 시 플레이어 방향으로 이동
         if (!isTargetingPlayer)
         {
             float distance = Vector3.Distance(transform.position, playerTransform.position);
@@ -49,6 +51,7 @@ public class ExpToken : MonoBehaviour
     {
         if (PlayerController.instance != null)
         {
+            //player 경험치 증가 함수 추가
             Debug.Log($"경험치 {expValue} 획득");
         }
         if (originPrefab != null && ObjectPoolManager.instance != null)
