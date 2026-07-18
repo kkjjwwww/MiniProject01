@@ -13,8 +13,12 @@ MonoBehaviour:
   m_Name: "03_\uC628\uC8FC\uC794"
   m_EditorClassIdentifier: Assembly-CSharp::ArtifactData
   itemID: 3
-  itemName: 
-  itemDescription: 
+  itemName: "\uC628\uC8FC\uC794"
+  itemDescription: "\uACF5\uACA9\uC18D\uB3C4 +8%\n\uB530\uB73B\uD55C \uC220\uC774
+    \uB2F4\uAE34 \uC220\uC794\uC785\uB2C8\uB2E4. \uC2DD\uAE30 \uC804\uC5D0 \uB9C8\uC2DC\uBA74
+    \uC88B\uC2B5\uB2C8\uB2E4."
   itemIcon: {fileID: 0}
-  type: 0
-  effects: []
+  type: 1
+  itemRarity: 0
+  effects:
+  - {fileID: 11400000, guid: 6a1705f14cb515348802ddd46116d3e2, type: 2}

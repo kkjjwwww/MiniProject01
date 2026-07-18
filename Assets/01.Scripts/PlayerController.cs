@@ -92,7 +92,9 @@ public class PlayerController : MonoBehaviour
     }
     private void LevelUpAchieve()
     {
-        //Time.timeScale = 0f;
-        //레벨업 UI 띄우기
+        if (UI_LevelUp.instance != null)
+        {
+            UI_LevelUp.instance.OpenLevelUpWindow();
+        }
     }
 }
