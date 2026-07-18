@@ -9,13 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 550bc5f95dcd4304481b411fbbcd2702, type: 3}
-  m_Name: NewArtifactData
-  m_EditorClassIdentifier: Assembly-CSharp::ArtifactData
-  itemID: 
-  itemName: 
-  itemDescription: 
-  itemIcon: {fileID: 0}
-  type: 0
-  effects:
-  - {fileID: 0}
+  m_Script: {fileID: 11500000, guid: 9f17aee0e3524a7488ffd3e8915359b7, type: 3}
+  m_Name: Effect_Damage_Normal
+  m_EditorClassIdentifier: Assembly-CSharp::ArtifactEffect_StatModify
+  statType: 2
+  modifyValue: 0.1
