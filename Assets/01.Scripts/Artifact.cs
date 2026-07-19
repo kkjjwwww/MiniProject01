@@ -7,6 +7,11 @@ public class Artifact : MonoBehaviour
 
     public int currentLevel = 1;
 
+    public Artifact(ArtifactData artifactData)
+    {
+        this.artifactData = artifactData;
+    }
+
     public virtual void Init(PlayerController playerContoller,ArtifactData data)
     {
         player = playerContoller;
@@ -15,7 +20,7 @@ public class Artifact : MonoBehaviour
         ApplyAllEffects();
     }
     
-    private void ApplyAllEffects()
+    public void ApplyAllEffects()
     {
         if (player == null || artifactData == null) return;
          foreach (var effect in artifactData.effects)
