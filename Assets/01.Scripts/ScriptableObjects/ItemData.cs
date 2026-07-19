@@ -11,5 +11,5 @@ public abstract class ItemData : ScriptableObject
     public Sprite itemIcon;
     public ItemType type;
     public ItemRarity itemRarity;
-    
+  
 }
