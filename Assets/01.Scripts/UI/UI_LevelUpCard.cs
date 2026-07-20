@@ -22,6 +22,8 @@ public class UI_LevelUpCard : MonoBehaviour
         nameText.text = itemData.itemName;
         decriptionText.text = itemData.itemDescription;
         iconImage.sprite = itemData.itemIcon;
+
+        RarityNameColor(itemData.itemRarity);
     }
 
     private void RarityNameColor(ItemRarity rarity)

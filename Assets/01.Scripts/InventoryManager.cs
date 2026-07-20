@@ -24,6 +24,7 @@ public class InventoryManager : MonoBehaviour
         if (equippedItem != null)
         {
             equippedItem.LevelUp();
+            equippedItem.ApplyAllEffects();
         }
         else
         {
@@ -33,6 +34,7 @@ public class InventoryManager : MonoBehaviour
                 newItem.ApplyAllEffects();
             }
             equippedItems.Add(newItem);
+            Debug.Log($"add new item {artifactData.itemName}");
         }
     }
 
