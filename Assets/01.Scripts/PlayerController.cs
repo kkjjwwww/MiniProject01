@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -45,8 +46,14 @@ public class PlayerController : MonoBehaviour
         dir = new Vector3(x, y).normalized;
 
         Attack();
-        
+#if UNITY_EDITOR
+        if (Keyboard.current != null && Keyboard.current.lKey.wasPressedThisFrame)
+        {
+            UI_LevelUp.instance.OpenLevelUpWindow();
+        }
+#endif
     }
+
 
     private void FixedUpdate()
     {
@@ -97,4 +104,6 @@ public class PlayerController : MonoBehaviour
             UI_LevelUp.instance.OpenLevelUpWindow();
         }
     }
+    
+    
 }
