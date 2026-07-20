@@ -4,23 +4,32 @@ using UnityEngine;
 public class ArtifactEffect_StatModify : ArtifactEffect
 {
     public ModifyStatType statType;
-    public float modifyValue;
+    public float[] valuePerLevel;
 
     public override void OnApply(PlayerController player, int level)
     {
-        float totalValue = modifyValue * level;
-        if (PlayerStats.instance != null)
+
+        if (PlayerStats.instance == null) return;
+        int index = level - 1;
+        if (index >= 0 && index < valuePerLevel.Length)
         {
-            PlayerStats.instance.ModifyStat(statType, totalValue);
+            float applyValue = valuePerLevel[index];
+        
+            PlayerStats.instance.ModifyStat(statType, applyValue);
         }
     }
 
     public override void OnRemove(PlayerController player, int level)
     {
-        float totalValue = modifyValue * level;
-        if (PlayerStats.instance != null)
+
+        if (PlayerStats.instance == null) return;
+        
+        int index = level - 1; 
+
+        if (index >= 0 && index < valuePerLevel.Length)
         {
-            PlayerStats.instance.ModifyStat(statType, -totalValue);
+            float applyValue = valuePerLevel[index];
+            PlayerStats.instance.ModifyStat(statType, -applyValue);
         }
     }
 }
