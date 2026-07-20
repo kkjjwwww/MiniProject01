@@ -54,11 +54,11 @@ public class UI_LevelUpCard : MonoBehaviour
         }
         if (isOwned)
         {
-            nameText.text = $"{itemData.name} +{nextLevel}";
+            nameText.text = $"{itemData.itemName} +{nextLevel}";
         }
         else
         {
-            nameText.text = itemData.name;
+            nameText.text = itemData.itemName;
         }
     }
 }
