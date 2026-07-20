@@ -19,8 +19,7 @@ public class UI_LevelUpCard : MonoBehaviour
 
         SetNameWithLevel(itemData);
 
-        
-        decriptionText.text = itemData.itemDescription;
+        SetDescriptionWithStat(itemData);
         iconImage.sprite = itemData.itemIcon;
 
         RarityNameColor(itemData.itemRarity);
@@ -39,52 +38,84 @@ public class UI_LevelUpCard : MonoBehaviour
     //중복아이템 드롭시 레벨업 표시
     private void SetNameWithLevel(ItemData itemData)
     {
-        int nextLevel = 1;
-        bool isOwned = false;
-        bool isMaxLevel = false;
-
-        if (InventoryManager.instance != null)
-        {
-            Artifact existingItem = InventoryManager.instance.equippedItems.Find(item => item.artifactData.itemID == itemData.itemID);
-
-            if (existingItem != null)
-            {
-                isOwned = true;
-                nextLevel = existingItem.currentLevel;
-
-                foreach (var effect in existingItem.artifactData.effects)
-                {
-                    if (effect is ArtifactEffect_StatModify statEffect)
-                    {
-                        if (nextLevel >= statEffect.valuePerLevel.Length)
-                        {
-                            isMaxLevel = true;
-                        }
-                        break;
-                    }
-                }
-            }
-
-        }
-        if (isOwned)
-        {
-            if (isMaxLevel)
-            {
-                nameText.text = $"{itemData.itemName} +MAX";
-            }
-            else
-            {
-                nameText.text = $"{itemData.itemName} +{nextLevel}";
-            }
-        }
-        else
+        Artifact equippedItem = GetEquippedArtifact(itemData);
+        if (equippedItem == null)
         {
             nameText.text = itemData.itemName;
+            return;
         }
-    }
+        bool isMaxLevel = IsMaxLevelArtifact(equippedItem);
+        nameText.text = isMaxLevel ? $"{itemData.itemName} +MAX" : $"{itemData.itemName} +{equippedItem.currentLevel}";
+    } 
+        
     
     private void SetDescriptionWithStat(ItemData itemData)
     {
+        string finalDescription = itemData.itemDescription; 
+        ArtifactData artifactData = itemData as ArtifactData;
 
+        if (artifactData == null || artifactData.effects == null) 
+        {
+            decriptionText.text = finalDescription; 
+            return;
+        }
+
+        Artifact equippedItem = GetEquippedArtifact(itemData);
+        int targetIndex = (equippedItem != null) ? equippedItem.currentLevel : 0;
+
+        foreach (var effect in artifactData.effects)
+        {
+            if (effect is not ArtifactEffect_StatModify statEffect) continue;
+
+            int index = Mathf.Min(targetIndex, statEffect.valuePerLevel.Length - 1);
+            if (index < 0 || index >= statEffect.valuePerLevel.Length) continue;
+
+            float statValue = statEffect.valuePerLevel[index];
+            string statText = GetStatTextByFormat(statEffect.statType, statValue);
+
+            finalDescription += $"\n\n<color=#00FF00>{statText}</color>";
+        }
+        decriptionText.text = finalDescription;
+    }
+    private Artifact GetEquippedArtifact(ItemData itemData)
+    {
+        if (InventoryManager.instance == null) return null; 
+        return InventoryManager.instance.equippedItems.Find(item => item.artifactData.itemID == itemData.itemID); 
+    }
+    private bool IsMaxLevelArtifact(Artifact item)
+    {
+        if (item == null || item.artifactData == null || item.artifactData.effects == null) return false;
+
+        foreach (var effect in item.artifactData.effects)
+        {
+            if (effect == null || effect is not ArtifactEffect_StatModify statEffect)
+                continue; 
+
+            if (statEffect.valuePerLevel == null)
+                continue;
+
+            return item.currentLevel >= statEffect.valuePerLevel.Length; 
+        }
+        return false;
+    }
+    private string GetStatTextByFormat(ModifyStatType type, float value)
+    {
+        string statName = type switch
+        {
+            ModifyStatType.MaxHp => "최대 체력",
+            ModifyStatType.MoveSpeed => "이동 속도",
+            ModifyStatType.Damage => "공격력",
+            ModifyStatType.AttackSpeed => "공격 속도",
+            ModifyStatType.CoolDownReduction => "쿨타임 감소",
+            _ => type.ToString()
+        };
+
+        // 수치 뒤에 % 붙일 대상
+        return type switch
+        {
+            ModifyStatType.Damage or ModifyStatType.AttackSpeed or ModifyStatType.CoolDownReduction or ModifyStatType.MoveSpeed
+                => $"{statName} +{value * 100f}%",
+            _ => $"{statName} +{value}"
+        };
     }
 }
