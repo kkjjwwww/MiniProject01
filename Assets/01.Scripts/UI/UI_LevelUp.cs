@@ -6,8 +6,9 @@ public class UI_LevelUp : MonoBehaviour
 
     [SerializeField] private GameObject UIPanel;
     [SerializeField] private List<ItemData> allItems = new List<ItemData>();
+    [SerializeField] private UI_LevelUpCard[] levelUpCards = new UI_LevelUpCard[3];
 
-    private List<ItemData> currentSelectedCards = new List<ItemData>();
+    
 
     private void Awake()
     {
@@ -26,36 +27,34 @@ public class UI_LevelUp : MonoBehaviour
     }
     private void PickRandomRewards()
     {
-        currentSelectedCards.Clear();
 
         List<ItemData> shuffleList = new List<ItemData>(allItems);
 
         // 안전 장치
         int countToPick = Mathf.Min(3, shuffleList.Count);
 
+        foreach (var card in levelUpCards)
+        {
+            card.gameObject.SetActive(false);
+        }
+
         for (int i = 0; i < countToPick; i++)
         {
             int randomIndex = Random.Range(0, shuffleList.Count);
-            currentSelectedCards.Add(shuffleList[randomIndex]);
+            ItemData pickedItem = shuffleList[randomIndex];
             shuffleList.RemoveAt(randomIndex); // 중복 제거
-        }
 
-        for (int i = 0; i < currentSelectedCards.Count; i++)
-        {
-            ItemData item = currentSelectedCards[i];
-            Debug.Log($"선택지 {i + 1}: {item.itemName} [{item.itemRarity}] - {item.itemDescription}");
-
-            
-            
+            levelUpCards[i].TextSet(pickedItem);
+            levelUpCards[i].gameObject.SetActive(true);
         }
     }
     public void OnClickCardButton(int cardIndex)
     {
-        if (cardIndex >= currentSelectedCards.Count) return;
+        if (cardIndex >= levelUpCards.Length || !levelUpCards[cardIndex].gameObject.activeSelf) return;
 
-        ItemData selectedItem = currentSelectedCards[cardIndex];
+        ItemData selectedItem = levelUpCards[cardIndex].assingedItem;
 
-        if (InventoryManager.instance != null)
+        if (InventoryManager.instance != null && selectedItem !=null)
         {
             InventoryManager.instance.AddItem(selectedItem);
         }
