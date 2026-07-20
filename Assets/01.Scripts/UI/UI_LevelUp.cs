@@ -46,7 +46,7 @@ public class UI_LevelUp : MonoBehaviour
             Debug.Log($"선택지 {i + 1}: {item.itemName} [{item.itemRarity}] - {item.itemDescription}");
 
             
-            // 각 카드 텍스트 아이콘 갱신
+            
         }
     }
     public void OnClickCardButton(int cardIndex)
@@ -55,11 +55,10 @@ public class UI_LevelUp : MonoBehaviour
 
         ItemData selectedItem = currentSelectedCards[cardIndex];
 
-        // 인벤토리에 아이템 지급 (새로 획득하거나 레벨업 처리)
-        //if (inventory.instance != null)
-        //{
-        //    inventory.instance.acquireitem(selecteditem);
-        //}
+        if (InventoryManager.instance != null)
+        {
+            InventoryManager.instance.AddItem(selectedItem);
+        }
 
         UIPanel.SetActive(false);
         Time.timeScale = 1f;
