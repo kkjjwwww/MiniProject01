@@ -59,7 +59,8 @@ public class UI_LevelUp : MonoBehaviour
             InventoryManager.instance.AddItem(selectedItem);
         }
 
-        UIPanel.SetActive(false);
+        
         Time.timeScale = 1f;
+        UIPanel.SetActive(false);
     }
 }

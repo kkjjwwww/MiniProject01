@@ -41,6 +41,7 @@ public class UI_LevelUpCard : MonoBehaviour
     {
         int nextLevel = 1;
         bool isOwned = false;
+        bool isMaxLevel = false;
 
         if (InventoryManager.instance != null)
         {
@@ -49,16 +50,41 @@ public class UI_LevelUpCard : MonoBehaviour
             if (existingItem != null)
             {
                 isOwned = true;
-                nextLevel = existingItem.currentLevel + 1;
+                nextLevel = existingItem.currentLevel;
+
+                foreach (var effect in existingItem.artifactData.effects)
+                {
+                    if (effect is ArtifactEffect_StatModify statEffect)
+                    {
+                        if (nextLevel >= statEffect.valuePerLevel.Length)
+                        {
+                            isMaxLevel = true;
+                        }
+                        break;
+                    }
+                }
             }
+
         }
         if (isOwned)
         {
-            nameText.text = $"{itemData.itemName} +{nextLevel}";
+            if (isMaxLevel)
+            {
+                nameText.text = $"{itemData.itemName} +MAX";
+            }
+            else
+            {
+                nameText.text = $"{itemData.itemName} +{nextLevel}";
+            }
         }
         else
         {
             nameText.text = itemData.itemName;
         }
+    }
+    
+    private void SetDescriptionWithStat(ItemData itemData)
+    {
+
     }
 }

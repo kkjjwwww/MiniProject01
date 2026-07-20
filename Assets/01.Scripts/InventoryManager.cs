@@ -15,6 +15,7 @@ public class InventoryManager : MonoBehaviour
     
     public void AddItem(ItemData itemData)
     {
+        //Debug.Log("add item 실행 성공");
         if (itemData == null) return;
         ArtifactData artifactData = itemData as ArtifactData;
         if (artifactData == null) return;
@@ -23,15 +24,16 @@ public class InventoryManager : MonoBehaviour
 
         if (equippedItem != null)
         {
+            Debug.Log("레벨업 진입시도");
             equippedItem.LevelUp();
-            equippedItem.ApplyAllEffects();
+            Debug.Log("LevelUp() 성공");
         }
         else
         {
             Artifact newItem = new Artifact(artifactData);
             if (PlayerController.instance != null)
             {
-                newItem.ApplyAllEffects();
+                newItem.Init(PlayerController.instance,artifactData);
             }
             equippedItems.Add(newItem);
             Debug.Log($"add new item {artifactData.itemName}");

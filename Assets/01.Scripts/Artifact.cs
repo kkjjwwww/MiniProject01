@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Artifact : MonoBehaviour
+public class Artifact
 {
     public ArtifactData artifactData;
     protected PlayerController player;
@@ -38,11 +38,11 @@ public class Artifact : MonoBehaviour
         ApplyAllEffects();
     }
 
-    private void Update()
+    private void OnUpdate()
     {
         if (player == null || artifactData == null) return;
 
-        foreach(var effect in artifactData.effects)
+        foreach (var effect in artifactData.effects)
         {
             effect.OnUpdate(player, currentLevel);
         }

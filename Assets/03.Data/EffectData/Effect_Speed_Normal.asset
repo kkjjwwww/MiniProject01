@@ -13,4 +13,9 @@ MonoBehaviour:
   m_Name: Effect_Speed_Normal
   m_EditorClassIdentifier: Assembly-CSharp::ArtifactEffect_StatModify
   statType: 1
-  modifyValue: 0.1
+  valuePerLevel:
+  - 0.1
+  - 0.12
+  - 0.14
+  - 0.16
+  - 0.2
