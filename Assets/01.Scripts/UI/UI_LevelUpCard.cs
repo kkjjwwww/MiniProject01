@@ -19,7 +19,7 @@ public class UI_LevelUpCard : MonoBehaviour
 
         SetNameWithLevel(itemData);
 
-        nameText.text = itemData.itemName;
+        
         decriptionText.text = itemData.itemDescription;
         iconImage.sprite = itemData.itemIcon;
 
