@@ -14,8 +14,28 @@ public abstract class Weapon : MonoBehaviour
 
     private float coolDownTimer;
 
-    public virtual float FinalDamage => baseDamage;
-    public virtual float FinalCoolDown => baseCoolDown;
+    public virtual float FinalDamage
+    {
+        get
+        {
+            if (PlayerStats.instance != null)
+            {
+                return baseDamage * PlayerStats.instance.finalDamageMultiplier;
+            }
+            return baseDamage;
+        }
+    }
+    public virtual float FinalCoolDown
+    {
+        get
+        {
+            if (PlayerStats.instance != null)
+            {
+                return baseCoolDown * (1f - PlayerStats.instance.finalCoolDownReduction);
+            }
+            return baseCoolDown;
+        }
+    }
     public virtual float FinalRange => baseRange;
 
     protected virtual void Start()
