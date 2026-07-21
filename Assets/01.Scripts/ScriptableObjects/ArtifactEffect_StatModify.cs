@@ -10,26 +10,23 @@ public class ArtifactEffect_StatModify : ArtifactEffect
     {
 
         if (PlayerStats.instance == null) return;
-        int index = level - 1;
-        if (index >= 0 && index < valuePerLevel.Length)
-        {
-            float applyValue = valuePerLevel[index];
+
+        int index = Mathf.Clamp(level -1, 0 ,valuePerLevel.Length - 1);
         
-            PlayerStats.instance.ModifyStat(statType, applyValue);
-        }
+        float applyValue = valuePerLevel[index];
+        PlayerStats.instance.ModifyStat(statType, applyValue);
+        
     }
 
     public override void OnRemove(PlayerController player, int level)
     {
 
         if (PlayerStats.instance == null) return;
-        
-        int index = level - 1; 
 
-        if (index >= 0 && index < valuePerLevel.Length)
-        {
-            float applyValue = valuePerLevel[index];
-            PlayerStats.instance.ModifyStat(statType, -applyValue);
-        }
+        int index = Mathf.Clamp(level - 1, 0, valuePerLevel.Length - 1);
+
+        float applyValue = valuePerLevel[index];
+        PlayerStats.instance.ModifyStat(statType, -applyValue);
+        
     }
 }

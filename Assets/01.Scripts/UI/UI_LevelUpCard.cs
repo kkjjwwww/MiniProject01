@@ -94,7 +94,7 @@ public class UI_LevelUpCard : MonoBehaviour
             if (statEffect.valuePerLevel == null)
                 continue;
 
-            return item.currentLevel >= statEffect.valuePerLevel.Length; 
+            return item.currentLevel >= statEffect.valuePerLevel.Length -1; 
         }
         return false;
     }

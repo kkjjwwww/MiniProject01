@@ -5,7 +5,7 @@ using UnityEngine.InputSystem;
 public class PlayerController : MonoBehaviour
 {
     public static PlayerController instance;
-    [SerializeField] float moveSpeed = 5f;
+    //[SerializeField] float moveSpeed = 5f;
 
     [SerializeField] private Weapon currentWeapon;
     [SerializeField] private Transform rotationPivot;
@@ -57,7 +57,8 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        rb.linearVelocity = dir * moveSpeed;
+        float currentMoveSpeed = PlayerStats.instance.finalMoveSpeed;
+        rb.linearVelocity = dir * currentMoveSpeed;
     }
     private void Attack()
     {

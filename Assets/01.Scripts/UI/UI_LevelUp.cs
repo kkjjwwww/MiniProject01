@@ -28,7 +28,7 @@ public class UI_LevelUp : MonoBehaviour
     private void PickRandomRewards()
     {
 
-        List<ItemData> shuffleList = new List<ItemData>(allItems);
+        List<ItemData> shuffleList = allItems.FindAll(item => !MaxLevelCheck(item));
 
         // 안전 장치
         int countToPick = Mathf.Min(3, shuffleList.Count);
@@ -74,7 +74,7 @@ public class UI_LevelUp : MonoBehaviour
         {
             if (effects is ArtifactEffect_StatModify statEffect)
             {
-                if(statEffect != null && equippedItem.currentLevel >= statEffect.valuePerLevel.Length)
+                if(statEffect != null && equippedItem.currentLevel >= statEffect.valuePerLevel.Length )
                 {
                     return true;
                 }
