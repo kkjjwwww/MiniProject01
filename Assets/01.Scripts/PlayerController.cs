@@ -1,6 +1,7 @@
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using System.Collections;
 
 public class PlayerController : MonoBehaviour
 {
@@ -17,6 +18,10 @@ public class PlayerController : MonoBehaviour
     public float maxExp = 100;
     [SerializeField] private float increaseMaxExpPerLevel = 1.2f;
 
+    [SerializeField] private float invincibleTime = 0.5f;
+    private bool invincible = false;
+    private SpriteRenderer sr;
+    Color originColor;
     private void Awake()
     {
         if (instance == null)
@@ -26,6 +31,8 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        sr = GetComponent<SpriteRenderer>();
+        originColor = sr.color;
     }
 
     
@@ -105,6 +112,27 @@ public class PlayerController : MonoBehaviour
             UI_LevelUp.instance.OpenLevelUpWindow();
         }
     }
+
+    public void OnTakeDamage(float damage)
+    {
+        if (invincible) return;
+
+        PlayerStats.instance.TakeDamage(damage);
+        StartCoroutine(InvinciblityCoroutine());
+    }
+
+    private IEnumerator InvinciblityCoroutine()
+    {
+        invincible = true;
+        sr.color = Color.white;
+
+        yield return new WaitForSeconds(invincibleTime);
+
+        sr.color = originColor;
+
+        invincible = false;
+    }
     
-    
+
 }
+

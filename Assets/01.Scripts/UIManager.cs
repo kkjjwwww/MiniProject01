@@ -9,7 +9,8 @@ public class UIManager : MonoBehaviour
     [SerializeField] private Slider expSlider;
     [SerializeField] private TMP_Text levelText;
     [SerializeField] private TMP_Text timerText;
-
+    [SerializeField] private Slider hpSlider;
+    [SerializeField] private TMP_Text hpText;
     private void Awake()
     {
         if (instance == null)
@@ -48,6 +49,18 @@ public class UIManager : MonoBehaviour
             int sec = Mathf.FloorToInt(time % 60);
 
             timerText.text = $"{min:D2}:{sec:D2}";
+        }
+    }
+    private void UpdateHpBarUI(float currentHp,float maxHp)
+    {
+        if (hpSlider != null)
+        {
+            hpSlider.maxValue = maxHp;
+            hpSlider.value = Mathf.Clamp(currentHp, 0, maxHp);
+        }
+        if (hpText != null)
+        {
+            hpText.text = $"{Mathf.CeilToInt(currentHp)}/{Mathf.CeilToInt(maxHp)}";
         }
     }
 }
