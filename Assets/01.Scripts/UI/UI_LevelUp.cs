@@ -63,4 +63,23 @@ public class UI_LevelUp : MonoBehaviour
         Time.timeScale = 1f;
         UIPanel.SetActive(false);
     }
+    private bool MaxLevelCheck(ItemData itemData)
+    {
+        Artifact equippedItem = InventoryManager.instance.equippedItems.Find(item => item != null && item.artifactData.itemID == itemData.itemID);
+
+        if (equippedItem == null) return false;
+        if (equippedItem.artifactData == null || equippedItem.artifactData.effects == null) return false;
+
+        foreach (var effects in equippedItem.artifactData.effects)
+        {
+            if (effects is ArtifactEffect_StatModify statEffect)
+            {
+                if(statEffect != null && equippedItem.currentLevel >= statEffect.valuePerLevel.Length)
+                {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
 }

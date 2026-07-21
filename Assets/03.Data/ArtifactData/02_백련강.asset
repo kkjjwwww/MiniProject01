@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ArtifactData
   itemID: 2
   itemName: "\uBC31\uB828\uAC15"
-  itemDescription: "\uACF5\uACA9\uB825 +10%\n\uBC31\uBC88\uC744 \uB450\uB4DC\uB824
-    \uAC15\uCCA0\uC744 \uB9CC\uB4DC\uB294 \uB2E8\uB2E8\uD55C \uC22B\uB3CC\uC785\uB2C8\uB2E4."
+  itemDescription: "\uBC31\uBC88\uC744 \uB450\uB4DC\uB824 \uAC15\uCCA0\uC744 \uB9CC\uB4DC\uB294
+    \uB2E8\uB2E8\uD55C \uC22B\uB3CC\uC785\uB2C8\uB2E4."
   itemIcon: {fileID: 0}
   type: 1
   itemRarity: 0

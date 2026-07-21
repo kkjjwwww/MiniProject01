@@ -14,9 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ArtifactData
   itemID: 1
   itemName: "\uC808\uC601"
-  itemDescription: "\uC774\uB3D9\uC18D\uB3C4 +10%\n\uC870\uC870\uC758 \uC560\uB9C8\uC785\uB2C8\uB2E4."
+  itemDescription: "\uC870\uC870\uC758 \uC560\uB9C8\uC785\uB2C8\uB2E4."
   itemIcon: {fileID: 0}
   type: 1
   itemRarity: 0
   effects:
-  - {fileID: 11400000, guid: 6a1705f14cb515348802ddd46116d3e2, type: 2}
+  - {fileID: 11400000, guid: 5dc24c36aac6ae049b0bd93cf111d2cc, type: 2}

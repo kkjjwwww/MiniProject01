@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f17aee0e3524a7488ffd3e8915359b7, type: 3}
   m_Name: Effect_AttackSpeed_Normal
   m_EditorClassIdentifier: Assembly-CSharp::ArtifactEffect_StatModify
-  statType: 3
+  statType: 4
   valuePerLevel:
   - 0.08
   - 0.1
