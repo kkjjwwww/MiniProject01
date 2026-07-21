@@ -19,7 +19,7 @@ public class PlayerController : MonoBehaviour
     public float maxExp = 100;
     [SerializeField] private float increaseMaxExpPerLevel = 1.2f;
 
-    [SerializeField] private float invincibleTime = 0.5f;
+    
     private bool invincible = false;
     private Tween damageTween;
 
