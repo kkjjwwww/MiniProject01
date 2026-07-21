@@ -105,15 +105,15 @@ public class UI_LevelUpCard : MonoBehaviour
             ModifyStatType.MaxHp => "최대 체력",
             ModifyStatType.MoveSpeed => "이동 속도",
             ModifyStatType.Damage => "공격력",
-            ModifyStatType.AttackSpeed => "공격 속도",
-            ModifyStatType.CoolDownReduction => "쿨타임 감소",
+            //ModifyStatType.AttackSpeed => "공격 속도",
+            ModifyStatType.CoolDownReduction => "공격 속도",
             _ => type.ToString()
         };
 
         // 수치 뒤에 % 붙일 대상
         return type switch
         {
-            ModifyStatType.Damage or ModifyStatType.AttackSpeed or ModifyStatType.CoolDownReduction or ModifyStatType.MoveSpeed
+            ModifyStatType.Damage or ModifyStatType.CoolDownReduction or ModifyStatType.MoveSpeed
                 => $"{statName} +{value * 100f}%",
             _ => $"{statName} +{value}"
         };

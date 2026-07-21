@@ -31,7 +31,8 @@ public abstract class Weapon : MonoBehaviour
         {
             if (PlayerStats.instance != null)
             {
-                return baseCoolDown * (1f - PlayerStats.instance.finalCoolDownReduction);
+                float cdr = Mathf.Clamp(PlayerStats.instance.finalCoolDownReduction, 0f, 0.95f);
+                return baseCoolDown * (1f - cdr);
             }
             return baseCoolDown;
         }

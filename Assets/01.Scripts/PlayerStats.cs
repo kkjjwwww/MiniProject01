@@ -37,7 +37,7 @@ public class PlayerStats : MonoBehaviour
             case ModifyStatType.MoveSpeed: bonusMoveSpeed += value; break;
             case ModifyStatType.CoolDownReduction: bonusCoolDownReduction += value;break;
             case ModifyStatType.Damage: bonusDamageMultiplier += value; break;
-            case ModifyStatType.AttackSpeed: bonusAttackSpeed += value; break;
+            //case ModifyStatType.AttackSpeed: bonusAttackSpeed += value; break;
         }
     }
 }
