@@ -21,6 +21,7 @@ public class UIManager : MonoBehaviour
     private void Start()
     {
         UpdateExpUI(0f, 100f, 1);
+        
     }
     private void Update()
     {
@@ -51,7 +52,7 @@ public class UIManager : MonoBehaviour
             timerText.text = $"{min:D2}:{sec:D2}";
         }
     }
-    private void UpdateHpBarUI(float currentHp,float maxHp)
+    public void UpdateHpBarUI(float currentHp,float maxHp)
     {
         if (hpSlider != null)
         {

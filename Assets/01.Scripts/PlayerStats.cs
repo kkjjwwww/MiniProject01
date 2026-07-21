@@ -35,7 +35,8 @@ public class PlayerStats : MonoBehaviour
     {
         switch (type)
         {
-            case ModifyStatType.MaxHp: bonusMaxHp += value; if (value > 0) currentHp += value; break;
+            case ModifyStatType.MaxHp: bonusMaxHp += value; if (value > 0) currentHp += value;
+                if (UIManager.instance != null) UIManager.instance.UpdateHpBarUI(currentHp, finalMaxHp); break;
             case ModifyStatType.MoveSpeed: bonusMoveSpeed += value; break;
             case ModifyStatType.CoolDownReduction: bonusCoolDownReduction += value;break;
             case ModifyStatType.Damage: bonusDamageMultiplier += value; break;
@@ -46,6 +47,7 @@ public class PlayerStats : MonoBehaviour
     private void Start()
     {
         currentHp = finalMaxHp;
+        UIManager.instance.UpdateHpBarUI(currentHp, finalMaxHp);
     }
 
     public void TakeDamage(float damage)
@@ -57,7 +59,7 @@ public class PlayerStats : MonoBehaviour
 
         if (UIManager.instance != null)
         {
-            // 체력바 UI 업데이트
+            UIManager.instance.UpdateHpBarUI(currentHp, finalMaxHp);
         }
         if (currentHp <= 0)
         {

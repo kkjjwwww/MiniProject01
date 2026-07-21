@@ -10,6 +10,7 @@ public class Enemy : MonoBehaviour
     public string enemyName;
     public float baseMaxHp;
     public float baseMoveSpeed;
+    public float AttackDamage { get; private set; } = 10f;
 
     public bool isDead = false;
     public float currentHp {  get; private set; }

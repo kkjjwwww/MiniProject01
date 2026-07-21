@@ -2,6 +2,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using System.Collections;
+using DG.Tweening;
 
 public class PlayerController : MonoBehaviour
 {
@@ -20,8 +21,11 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField] private float invincibleTime = 0.5f;
     private bool invincible = false;
+    private Tween damageTween;
+
     private SpriteRenderer sr;
     Color originColor;
+
     private void Awake()
     {
         if (instance == null)
@@ -118,21 +122,28 @@ public class PlayerController : MonoBehaviour
         if (invincible) return;
 
         PlayerStats.instance.TakeDamage(damage);
-        StartCoroutine(InvinciblityCoroutine());
+        InvincibleTween();
+        
     }
 
-    private IEnumerator InvinciblityCoroutine()
+    private void InvincibleTween()
     {
         invincible = true;
-        sr.color = Color.white;
-
-        yield return new WaitForSeconds(invincibleTime);
-
-        sr.color = originColor;
-
-        invincible = false;
+        damageTween?.Kill();
+        damageTween = sr.DOColor(Color.white, 0.1f).SetLoops(4, LoopType.Yoyo).OnComplete(() => { sr.color = originColor; invincible = false; });
     }
     
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Enemy"))
+        {
+            Enemy enemy = collision.GetComponent<Enemy>();
+            if (enemy != null)
+            {
+                OnTakeDamage(enemy.AttackDamage);
+            }
+        }
+    }
 
 }
 
