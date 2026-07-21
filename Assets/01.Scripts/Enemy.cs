@@ -10,7 +10,7 @@ public class Enemy : MonoBehaviour
     public string enemyName;
     public float baseMaxHp;
     public float baseMoveSpeed;
-    public float AttackDamage { get; private set; } = 10f;
+    public float attackDamage { get; private set; } = 10f;
 
     public bool isDead = false;
     public float currentHp {  get; private set; }
@@ -43,9 +43,11 @@ public class Enemy : MonoBehaviour
         spriteRenderer.color = originalColor;
         if (enemyData != null)
         {
-            enemyName = enemyData.name;
+            enemyName = enemyData.enemyName;
             baseMaxHp = enemyData.maxHp;
             baseMoveSpeed = enemyData.moveSpeed;
+            attackDamage = enemyData.attackDamage;
+            expValue = enemyData.expValue;
         }
         isDead = false;
         if (PlayerController.instance != null)

@@ -10,10 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c930fcd346959a443abdf6a49b263a9c, type: 3}
-  m_Name: 30sec
+  m_Name: 60sec
   m_EditorClassIdentifier: Assembly-CSharp::SpawnData
   spawnInterval: 1
   maxCountEnemy: 300
   spawnList:
+  - enemyPrefab: {fileID: -8740582495104171962, guid: 7696562c2b9b5cd489b8044d2f19b271, type: 3}
+    spawnWeight: 1
   - enemyPrefab: {fileID: 359527694706738918, guid: fcafaae62e3db894d81314efc3aeb5e0, type: 3}
     spawnWeight: 10

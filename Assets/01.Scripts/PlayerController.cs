@@ -140,7 +140,7 @@ public class PlayerController : MonoBehaviour
             Enemy enemy = collision.GetComponent<Enemy>();
             if (enemy != null)
             {
-                OnTakeDamage(enemy.AttackDamage);
+                OnTakeDamage(enemy.attackDamage);
             }
         }
     }
