@@ -22,6 +22,10 @@ public class SpawnManager : MonoBehaviour
 
     public float spawnRadius = 12f;
 
+    [SerializeField] private List<Enemy> bossPrefabs;
+    [SerializeField] private float bossInterval = 180f;
+    private float bossTimer = 0f;
+
     int currentPhaseIndex = -1;
     private List<Enemy> activeEnemies = new List<Enemy>();
     private SpawnData currentSpawnData;
@@ -60,6 +64,13 @@ public class SpawnManager : MonoBehaviour
 
         CheckPhase();
 
+        bossTimer += Time.deltaTime;
+        if (bossTimer >= bossInterval)
+        {
+            bossTimer = 0f;
+            TrySpawnBoss();
+        }
+
         if (currentSpawnData == null) return;
         spawnTimer += Time.deltaTime;
         if (spawnTimer >= currentSpawnData.spawnInterval)
@@ -87,6 +98,25 @@ public class SpawnManager : MonoBehaviour
             activeEnemies.Add(enemy);
         }
     }
+    private void TrySpawnBoss()
+    {
+        int randomIndex = Random.Range(0,bossPrefabs.Count);
+        Enemy selectedBossPrefab = bossPrefabs[randomIndex];
+
+        Vector2 randomCircle = Random.insideUnitCircle.normalized * spawnRadius;
+        Vector3 spawnPosition = playerTransform.position + new Vector3(randomCircle.x, randomCircle.y, 0f);
+
+        Enemy boss = ObjectPoolManager.instance.Get(selectedBossPrefab, spawnPosition, Quaternion.identity);
+
+        if (boss != null)
+        {
+            boss.InitEnemy(selectedBossPrefab, currentHpMultiplier);
+
+            activeEnemies.Add(boss);
+        }
+        //보스 UI 업데이트
+    }
+
     public void OnEnemyDespawn(Enemy enemy)
     {
         if (activeEnemies.Contains(enemy))
