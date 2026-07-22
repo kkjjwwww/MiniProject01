@@ -25,16 +25,19 @@ public class UI_GameOver : MonoBehaviour
         gameObject.SetActive(false);
     }
 
-    public void GameOverPopUp(float timeRecord,int killRecord, List<Sprite> itemIcons)
+    public void GameOverPopUp(float timeRecord, int killRecord, List<Sprite> itemIcons)
     {
         gameObject.SetActive(true);
 
         int minutes = Mathf.FloorToInt(timeRecord / 60);
         int seconds = Mathf.FloorToInt(timeRecord % 60);
-        timeRecordText.text = $"생존시간 : {minutes:00} {seconds:00}";
+        timeRecordText.text = $"생존시간 : {minutes:00}:{seconds:00}";
 
         killRecordText.text = $"처치한 적 : {killRecord}";
-
+        if (itemIcons != null)
+        { 
+        SetItemIcons(itemIcons);
+        }
         Time.timeScale = 0f;
     }
     public void SetItemIcons(List<Sprite> itemIcons)
@@ -43,13 +46,14 @@ public class UI_GameOver : MonoBehaviour
         {
             Destroy(child.gameObject);
         }
+        if (itemIcons == null || itemSlotPrefab == null) return;
         foreach(Sprite icon in itemIcons)
         {
             UI_ItemSlot newSlot = Instantiate(itemSlotPrefab, itemGrid);
             newSlot.SetSlot(icon);
         }
     }
-    private void TitleButtonClick()
+    public void TitleButtonClick()
     {
         Time.timeScale = 1f;
         SceneManager.LoadScene("TitleScene");

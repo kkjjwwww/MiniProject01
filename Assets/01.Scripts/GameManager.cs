@@ -29,6 +29,8 @@ public class GameManager : MonoBehaviour
     private List<Sprite> GetItemIcons()
     {
         List<Sprite> icons = new List<Sprite>();
+
+        if (InventoryManager.instance == null || InventoryManager.instance.equippedItems == null) return icons;
         foreach (var items in InventoryManager.instance.equippedItems)
         {
             if (items.artifactData != null)

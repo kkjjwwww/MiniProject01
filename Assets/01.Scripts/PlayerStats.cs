@@ -70,7 +70,7 @@ public class PlayerStats : MonoBehaviour
     public void Die()
     {
         Debug.Log("player Die");
-        //게임오버 처리
+        GameManager.instance.GameOver();
     }
 
 
