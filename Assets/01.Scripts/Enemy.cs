@@ -103,6 +103,10 @@ public class Enemy : MonoBehaviour
         {
             SpawnManager.instance.OnEnemyDespawn(this);
         }
+        if (GameManager.instance != null)
+        {
+            GameManager.instance.AddkillCount();
+        }
 
         DropExpToken();
 
