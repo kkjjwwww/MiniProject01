@@ -48,7 +48,7 @@ public class ObjectPoolManager : MonoBehaviour
         poolDictionary.Add(prefab, newPool);
     }
 
-    public void returnObject<T>(T prefab, T obj) where T : Component
+    public void ReturnObject<T>(T prefab, T obj) where T : Component
     {
         if (poolDictionary.TryGetValue(prefab, out object poolObj))
         {

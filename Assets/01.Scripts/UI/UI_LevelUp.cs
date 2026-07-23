@@ -72,12 +72,10 @@ public class UI_LevelUp : MonoBehaviour
 
         foreach (var effects in equippedItem.artifactData.effects)
         {
-            if (effects is ArtifactEffect_StatModify statEffect)
+            if (effects != null) 
             {
-                if(statEffect != null && equippedItem.currentLevel >= statEffect.valuePerLevel.Length )
-                {
+                if (equippedItem.currentLevel >= effects.GetMaxLevel())
                     return true;
-                }
             }
         }
         return false;

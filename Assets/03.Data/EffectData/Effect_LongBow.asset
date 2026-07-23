@@ -1,0 +1,16 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ce81cf41d6d9a24fbc0d26ff3c13c27, type: 3}
+  m_Name: Effect_LongBow
+  m_EditorClassIdentifier: Assembly-CSharp::ArtifactEffect_LongBow
+  arrowPrefab: {fileID: -249952411720562948, guid: c4082e4e7edbf4145b47643d80ee7000, type: 3}
+  coolDown: 1.5

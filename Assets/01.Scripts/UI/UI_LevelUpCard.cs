@@ -65,15 +65,14 @@ public class UI_LevelUpCard : MonoBehaviour
 
         foreach (var effect in artifactData.effects)
         {
-            if (effect is not ArtifactEffect_StatModify statEffect) continue;
+            if (effect == null) continue;
 
-            int index = Mathf.Min(targetIndex, statEffect.valuePerLevel.Length - 1);
-            if (index < 0 || index >= statEffect.valuePerLevel.Length) continue;
+            string statText = effect.GetDescriptionText(targetIndex);
 
-            float statValue = statEffect.valuePerLevel[index];
-            string statText = GetStatTextByFormat(statEffect.statType, statValue);
-
-            finalDescription += $"\n\n<color=#00FF00>{statText}</color>";
+            if (!string.IsNullOrEmpty(statText))
+            {
+                finalDescription += $"\n\n<color=#00FF00>{statText}</color>";
+            }
         }
         decriptionText.text = finalDescription;
     }
@@ -88,34 +87,13 @@ public class UI_LevelUpCard : MonoBehaviour
 
         foreach (var effect in item.artifactData.effects)
         {
-            if (effect == null || effect is not ArtifactEffect_StatModify statEffect)
-                continue; 
-
-            if (statEffect.valuePerLevel == null)
+            if (effect == null)
                 continue;
 
-            return item.currentLevel >= statEffect.valuePerLevel.Length -1; 
+            if (item.currentLevel + 1 >= effect.GetMaxLevel())
+                return true;
         }
         return false;
     }
-    private string GetStatTextByFormat(ModifyStatType type, float value)
-    {
-        string statName = type switch
-        {
-            ModifyStatType.MaxHp => "최대 체력",
-            ModifyStatType.MoveSpeed => "이동 속도",
-            ModifyStatType.Damage => "공격력",
-            //ModifyStatType.AttackSpeed => "공격 속도",
-            ModifyStatType.CoolDownReduction => "공격 속도",
-            _ => type.ToString()
-        };
-
-        // 수치 뒤에 % 붙일 대상
-        return type switch
-        {
-            ModifyStatType.Damage or ModifyStatType.CoolDownReduction or ModifyStatType.MoveSpeed
-                => $"{statName} +{value * 100f}%",
-            _ => $"{statName} +{value}"
-        };
-    }
+    
 }

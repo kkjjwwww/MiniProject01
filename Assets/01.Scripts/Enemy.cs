@@ -112,7 +112,7 @@ public class Enemy : MonoBehaviour
 
         if (originPrefab != null)
         {
-            ObjectPoolManager.instance.returnObject(originPrefab, this);
+            ObjectPoolManager.instance.ReturnObject(originPrefab, this);
         }
         isDead = true;
 

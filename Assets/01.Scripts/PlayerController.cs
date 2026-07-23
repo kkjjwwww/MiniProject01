@@ -1,7 +1,7 @@
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using System.Collections;
+using System.Collections.Generic;
 using DG.Tweening;
 
 public class PlayerController : MonoBehaviour
@@ -10,7 +10,12 @@ public class PlayerController : MonoBehaviour
     //[SerializeField] float moveSpeed = 5f;
 
     [SerializeField] private Weapon currentWeapon;
+    public Weapon CurrentWeapon => currentWeapon;
     [SerializeField] private Transform rotationPivot;
+    public Transform RotationPivot => rotationPivot;
+
+    
+
     private Rigidbody2D rb;
     private Vector3 dir;
 
@@ -42,6 +47,8 @@ public class PlayerController : MonoBehaviour
     
     void Update()
     {
+        UpdateArtifact();
+
         if (Keyboard.current == null ) return;
         float x = 0;
         float y = 0;
@@ -57,6 +64,7 @@ public class PlayerController : MonoBehaviour
         dir = new Vector3(x, y).normalized;
 
         Attack();
+
 #if UNITY_EDITOR
         if (Keyboard.current != null && Keyboard.current.lKey.wasPressedThisFrame)
         {
@@ -81,6 +89,25 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    private void UpdateArtifact()
+    {
+        var items = InventoryManager.instance.equippedItems;
+        if (items == null) return;
+
+        for (int i = 0; i< items.Count; i++)
+        {
+            Artifact artifact = items[i];
+            if (artifact == null || artifact.artifactData == null) continue;
+
+            foreach (var effect in artifact.artifactData.effects)
+            {
+                if (effect != null)
+                {
+                    effect.OnUpdate(this, artifact.currentLevel);
+                }
+            }
+        }
+    }
     public void AddExp(float value)
     {
         currentExp += value;

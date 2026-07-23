@@ -56,7 +56,7 @@ public class ExpToken : MonoBehaviour
         }
         if (originPrefab != null && ObjectPoolManager.instance != null)
         {
-            ObjectPoolManager.instance.returnObject(originPrefab, this);
+            ObjectPoolManager.instance.ReturnObject(originPrefab, this);
         }else
         {
             Destroy(gameObject);
