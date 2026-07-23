@@ -25,6 +25,7 @@ public class GameManager : MonoBehaviour
 
         List<Sprite> itemIcons = GetItemIcons();
         UI_GameOver.instance.GameOverPopUp(timeRecord, killCount, itemIcons);
+        GameRecordManager.instance.SaveCurrentRecord(timeRecord, killCount, itemIcons);
     }
     private List<Sprite> GetItemIcons()
     {

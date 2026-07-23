@@ -15,7 +15,7 @@ MonoBehaviour:
   itemID: 3
   itemName: "\uC628\uC8FC\uC794"
   itemDescription: "\uB530\uB73B\uD55C \uC220\uC774 \uB2F4\uAE34 \uC220\uC794\uC774\uB2E4."
-  itemIcon: {fileID: 0}
+  itemIcon: {fileID: 21300000, guid: f4cff824981b89a4daabb076cd812019, type: 3}
   type: 1
   itemRarity: 0
   effects:
