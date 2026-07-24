@@ -40,7 +40,7 @@ public class CurrencyManager : MonoBehaviour
 
     public bool UseCurrency(int value)
     {
-        if (value >= currentCurrency)
+        if (value <= currentCurrency)
         {
             currentCurrency -= value;
             return true; 
