@@ -10,6 +10,7 @@ public class UI_GameOver : MonoBehaviour
 
     [SerializeField] private TMP_Text timeRecordText;
     [SerializeField] private TMP_Text killRecordText;
+    [SerializeField] private TMP_Text achieveCurrencyText;
 
     [SerializeField] private Transform itemGrid;
     [SerializeField] private UI_ItemSlot itemSlotPrefab;
@@ -25,15 +26,16 @@ public class UI_GameOver : MonoBehaviour
         gameObject.SetActive(false);
     }
 
-    public void GameOverPopUp(float timeRecord, int killRecord, List<Sprite> itemIcons)
+    public void GameOverPopUp(float timeRecord, int killRecord, List<Sprite> itemIcons, int achieveCurrency)
     {
         gameObject.SetActive(true);
 
         int minutes = Mathf.FloorToInt(timeRecord / 60);
         int seconds = Mathf.FloorToInt(timeRecord % 60);
         timeRecordText.text = $"생존시간 : {minutes:00}:{seconds:00}";
-
         killRecordText.text = $"처치한 적 : {killRecord}";
+        achieveCurrencyText.text = $"획득한 군량 : +{achieveCurrency}";
+
         if (itemIcons != null)
         { 
         SetItemIcons(itemIcons);

@@ -5,7 +5,10 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
-    public int killCount { get; private set; } = 0;  
+    public int killCount { get; private set; } = 0;
+
+    public float addCurrencyRatio = 1f;
+
 
     private void Awake()
     {
@@ -23,8 +26,14 @@ public class GameManager : MonoBehaviour
     {
         float timeRecord = SpawnManager.instance.totalGameTime;
 
+        int achieveCurrency = Mathf.FloorToInt(killCount * addCurrencyRatio);
+        if (CurrencyManager.instance != null)
+        {
+            CurrencyManager.instance.AddCurrency(achieveCurrency);
+        }
+
         List<Sprite> itemIcons = GetItemIcons();
-        UI_GameOver.instance.GameOverPopUp(timeRecord, killCount, itemIcons);
+        UI_GameOver.instance.GameOverPopUp(timeRecord, killCount, itemIcons, achieveCurrency);
         GameRecordManager.instance.SaveCurrentRecord(timeRecord, killCount, itemIcons);
     }
     private List<Sprite> GetItemIcons()

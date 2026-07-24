@@ -1,7 +1,7 @@
 using UnityEngine;
 
 public enum ItemRarity { Normal, Rare, Unique, Legendary}
-public enum ItemType { Weapon, Artifact, }
+public enum ItemType { Weapon, Artifact, Partner}
 public abstract class ItemData : ScriptableObject
 {
 

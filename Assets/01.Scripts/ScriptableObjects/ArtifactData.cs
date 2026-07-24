@@ -10,6 +10,10 @@ public enum ModifyStatType
     Damage,
     CoolDownReduction,
     //AttackSpeed,
+    MaxHp_Int,
+    MoveSpeed_Int,
+    Damage_Int,
+
 }
 [CreateAssetMenu(fileName = "NewArtifactData", menuName = "Item/ArtifactData")]     
 public class ArtifactData : ItemData
