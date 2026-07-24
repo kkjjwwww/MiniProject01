@@ -30,7 +30,7 @@ public class UI_ShopStatSlot : MonoBehaviour
 
         iconImage.sprite = currentData.icon;
         nameText.text = currentData.name;
-        descriptionText.text = currentData.statDescription;
+        descriptionText.text = string.Format(currentData.statDescription,currentData.increaseValuePerLevel);
 
         int currentLevel = ShopManager.instance.GetStatLevel(currentData);
         bool isMax = currentLevel >= currentData.maxLevel;

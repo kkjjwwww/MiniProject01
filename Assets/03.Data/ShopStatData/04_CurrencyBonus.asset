@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff8539791f6fcf348af66a8beadaed22, type: 3}
+  m_Name: 04_CurrencyBonus
+  m_EditorClassIdentifier: Assembly-CSharp::ShopStatData
+  statID: 4
+  statName: "\uAD70\uB7C9"
+  statDescription: "\uAD70\uB7C9\uC758 \uD68D\uB4DD\uB7C9\uC774 {0:P0} \uC99D\uAC00\uD569\uB2C8\uB2E4"
+  icon: {fileID: 0}
+  statType: 4
+  baseCost: 100
+  maxLevel: 5
+  increaseValuePerLevel: 0.1
