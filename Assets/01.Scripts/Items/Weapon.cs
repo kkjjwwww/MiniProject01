@@ -20,7 +20,7 @@ public abstract class Weapon : MonoBehaviour
         {
             if (PlayerStats.instance != null)
             {
-                return baseDamage * PlayerStats.instance.finalDamageMultiplier;
+                return (baseDamage + PlayerStats.instance.finalbonusDamageFlat )* PlayerStats.instance.finalDamageMultiplier;
             }
             return baseDamage;
         }

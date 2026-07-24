@@ -31,6 +31,10 @@ public class PlayerController : MonoBehaviour
     private SpriteRenderer sr;
     Color originColor;
 
+    #region 상점 스탯 보너스 캐싱
+    private float expBonusMultiplier = 1f;
+    #endregion
+
     private void Awake()
     {
         if (instance == null)
@@ -42,6 +46,7 @@ public class PlayerController : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         sr = GetComponent<SpriteRenderer>();
         originColor = sr.color;
+        expBonusMultiplier += ShopManager.instance.GetTotalBonusValue(ShopStatType.ExpBonus);
     }
 
     
@@ -110,7 +115,7 @@ public class PlayerController : MonoBehaviour
     }
     public void AddExp(float value)
     {
-        currentExp += value;
+        currentExp += value * expBonusMultiplier;
         Debug.Log($"현재 경험치{currentExp}/{maxExp}");
         if (UIManager.instance != null)
         {

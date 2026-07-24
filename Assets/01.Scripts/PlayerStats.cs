@@ -13,12 +13,14 @@ public class PlayerStats : MonoBehaviour
     private float bonusMaxHp;
     private float bonusMoveSpeed;
     private float bonusDamageMultiplier;
+    private float bonusDamageFlat;
     private float bonusCoolDownReduction;
     //private float bonusAttackSpeed;
 
     public float finalMaxHp => baseMaxHp + bonusMaxHp;
     public float finalMoveSpeed => baseMoveSpeed + bonusMoveSpeed;
     public float finalDamageMultiplier => baseDamageMultiplier + bonusDamageMultiplier;
+    public float finalbonusDamageFlat => bonusDamageFlat;
     public float finalCoolDownReduction => baseCoolDownReduction + bonusCoolDownReduction;
     //public float finalAttackSpeed => baseAttackSpeed + bonusAttackSpeed;
 
@@ -40,12 +42,15 @@ public class PlayerStats : MonoBehaviour
             case ModifyStatType.MoveSpeed: bonusMoveSpeed += value; break;
             case ModifyStatType.CoolDownReduction: bonusCoolDownReduction += value;break;
             case ModifyStatType.Damage: bonusDamageMultiplier += value; break;
+            case ModifyStatType.Damage_Int: bonusDamageFlat += value; break;
             //case ModifyStatType.AttackSpeed: bonusAttackSpeed += value; break;
         }
     }
 
     private void Start()
     {
+        ApplyShopStats();
+
         currentHp = finalMaxHp;
         UIManager.instance.UpdateHpBarUI(currentHp, finalMaxHp);
     }
@@ -73,5 +78,38 @@ public class PlayerStats : MonoBehaviour
         GameManager.instance.GameOver();
     }
 
+    private void ApplyShopStats()
+    {
+        if (ShopManager.instance == null)
+        {
+            Debug.LogError("ShopManager.instance == null");
+            return;
+        }
+
+        foreach (var statData in ShopManager.instance.allShopStats)
+        {
+            float value = ShopManager.instance.GetTotalBonusValue(statData.statType);
+            if (value <= 0) continue;
+
+            switch (statData.statType)
+            {
+                case ShopStatType.MaxHp_INT:
+                    ModifyStat(ModifyStatType.MaxHp, value);
+                    break;
+                case ShopStatType.AttackDamage:
+                    ModifyStat(ModifyStatType.Damage, value);
+                    break;
+                case ShopStatType.AttackDamage_INT:
+                    ModifyStat(ModifyStatType.Damage_Int, value);
+                    break;
+                case ShopStatType.MoveSpeed:
+                    ModifyStat(ModifyStatType.MoveSpeed, value);
+                    break;
+                case ShopStatType.CoolDownReduction:
+                    ModifyStat(ModifyStatType.CoolDownReduction, value);
+                    break;
+            }
+        }
+    }
 
 }

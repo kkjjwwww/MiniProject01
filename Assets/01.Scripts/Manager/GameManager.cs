@@ -18,6 +18,10 @@ public class GameManager : MonoBehaviour
         }
         else Destroy(gameObject);
     }
+    private void Start()
+    {
+        addCurrencyRatio += ShopManager.instance.GetTotalBonusValue(ShopStatType.CurrencyBonus);
+    }
     public void AddkillCount()
     {
         killCount++;
