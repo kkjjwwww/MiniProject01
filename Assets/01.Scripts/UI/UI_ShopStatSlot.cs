@@ -29,7 +29,7 @@ public class UI_ShopStatSlot : MonoBehaviour
         if (currentData == null) return;   
 
         iconImage.sprite = currentData.icon;
-        nameText.text = currentData.name;
+        nameText.text = currentData.statName;
         descriptionText.text = string.Format(currentData.statDescription,currentData.increaseValuePerLevel);
 
         int currentLevel = ShopManager.instance.GetStatLevel(currentData);
@@ -45,7 +45,7 @@ public class UI_ShopStatSlot : MonoBehaviour
         else
         {
             int price = ShopManager.instance.GetUpgradeCost(currentData);
-            priceText.text = $"{price} ±º·®";
+            priceText.text = $"{price}";
 
             int currentCurrency = CurrencyManager.instance.currentCurrency;
             upgradeButton.interactable = currentCurrency >= price;

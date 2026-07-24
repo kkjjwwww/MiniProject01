@@ -15,6 +15,11 @@ public class UI_Shop : MonoBehaviour
     {
         RefreshUI();
     }
+    public void OpenShop()
+    {
+        gameObject.SetActive(true);
+        RefreshUI();
+    }
 
     public void RefreshUI()
     {
@@ -42,5 +47,9 @@ public class UI_Shop : MonoBehaviour
                 slot.UpdateUI();
             }
         }
+    }
+    public void CloseShop()
+    {
+        gameObject.SetActive(false);
     }
 }
