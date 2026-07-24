@@ -2,9 +2,9 @@ using NUnit.Framework;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ShopManger : MonoBehaviour
+public class ShopManager : MonoBehaviour
 {
-    public static ShopManger instance;
+    public static ShopManager instance;
 
     public List<ShopStatData> allShopStats;
 
