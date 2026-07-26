@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class ExpToken : MonoBehaviour
@@ -5,6 +6,9 @@ public class ExpToken : MonoBehaviour
     public float expValue = 10;
     public float moveSpeed ;
     public float magnetRange;
+
+    //벗어나면 풀에 반납할 거리
+    public float despawnDistance = 25f;
 
     private Transform playerTransform;
     private bool isTargetingPlayer = false;
@@ -28,10 +32,18 @@ public class ExpToken : MonoBehaviour
     {
         if (playerTransform == null) { return; }
 
+        float distance = Vector3.Distance(transform.position, playerTransform.position);
+
+        if (distance >= despawnDistance)
+        {
+            ReturnToPool();
+            return;
+        }
+
         // magentRange 사거리 안에 플레이어 들어올 시 플레이어 방향으로 이동
         if (!isTargetingPlayer)
         {
-            float distance = Vector3.Distance(transform.position, playerTransform.position);
+            
             if (distance <= magnetRange)
             {
                 isTargetingPlayer=true;
@@ -63,5 +75,15 @@ public class ExpToken : MonoBehaviour
         }
     }
 
-
+    private void ReturnToPool()
+    {
+        if (ObjectPoolManager.instance != null)
+        {
+            ObjectPoolManager.instance.ReturnObject(originPrefab, this);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
 }
