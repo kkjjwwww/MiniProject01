@@ -42,6 +42,11 @@ public class SpawnManager : MonoBehaviour
         }
     }
 
+    //성능최적화용 변수
+    public float teleportDistance = 20f;
+    private float teleportTimer = 0f;
+    private float teleportCoolDown = 1f;
+
     private void Awake()
     {
         if (instance == null) instance = this;
@@ -69,6 +74,14 @@ public class SpawnManager : MonoBehaviour
         {
             bossTimer = 0f;
             TrySpawnBoss();
+        }
+
+        //최적화용 적 재배치
+        teleportTimer += Time.deltaTime;
+        if(teleportTimer >= teleportCoolDown)
+        {
+            teleportTimer = 0f;
+            RepositionFarEnemies();
         }
 
         if (currentSpawnData == null) return;
@@ -158,5 +171,24 @@ public class SpawnManager : MonoBehaviour
         Gizmos.color = Color.red;
 
         Gizmos.DrawWireSphere(centerPosition, spawnRadius);
+    }
+
+    private void RepositionFarEnemies()
+    {
+        for (int i = activeEnemies.Count - 1; i >= 0; i--)
+        {
+            Enemy enemy = activeEnemies[i];
+            if (enemy == null || !enemy.gameObject.activeSelf) continue;
+
+            float distance = Vector3.Distance(enemy.transform.position, playerTransform.position);
+
+            if (distance >= teleportDistance)
+            {
+                Vector2 randomCircle = Random.insideUnitCircle.normalized * spawnRadius;
+                Vector3 newSpawnPosition = playerTransform.position + new Vector3(randomCircle.x, randomCircle.y, 0f);
+
+                enemy.transform.position = newSpawnPosition;
+            }
+        }
     }
 }
