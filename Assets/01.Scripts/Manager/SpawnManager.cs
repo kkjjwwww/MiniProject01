@@ -100,6 +100,11 @@ public class SpawnManager : MonoBehaviour
     }
     private void TrySpawnBoss()
     {
+        if (bossPrefabs == null || bossPrefabs.Count == 0)
+        {
+            Debug.LogWarning("SpawnManager: bossPrefabs == null");
+            return;
+        }
         int randomIndex = Random.Range(0,bossPrefabs.Count);
         Enemy selectedBossPrefab = bossPrefabs[randomIndex];
 
