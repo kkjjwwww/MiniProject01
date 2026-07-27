@@ -568,6 +568,8 @@ MonoBehaviour:
   timerText: {fileID: 1049624358}
   hpSlider: {fileID: 1149986919}
   hpText: {fileID: 1681477620}
+  bossHpContainer: {fileID: 2106809836}
+  bossHpBarPrefab: {fileID: 8003629675945219990, guid: 7acf16e9151c5604aa2660832e4eb870, type: 3}
 --- !u!4 &260253827
 Transform:
   m_ObjectHideFlags: 0
@@ -1747,7 +1749,7 @@ MonoBehaviour:
   m_Intensity: 1
   m_LightVolumeIntensity: 1
   m_LightVolumeEnabled: 0
-  m_ApplyToSortingLayers: 00000000
+  m_ApplyToSortingLayers: 0000000005069fe5f162e9105bc6fc54
   m_LightCookieSprite: {fileID: 0}
   m_DeprecatedPointLightCookieSprite: {fileID: 0}
   m_LightOrder: 0
@@ -3973,6 +3975,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SpawnManager
   difficultyInterval: 30
   hpIncrease: 0.15
+  moveSpeedIncrease: 0.05
   timelinePhases:
   - phaseName: 30sec
     startPhaseTimeSec: 0
@@ -3984,7 +3987,8 @@ MonoBehaviour:
     startPhaseTimeSec: 90
     spawnData: {fileID: 11400000, guid: 6d3828a6d7ca43345a94e5a2acb55f6c, type: 2}
   spawnRadius: 10
-  bossPrefabs: []
+  bossPrefabs:
+  - {fileID: 1566776963040517246, guid: b85fb0d2a2b67904ebad1cf6120bfb68, type: 3}
   bossInterval: 180
   teleportDistance: 20
   maxAliveTime: 120
@@ -4960,6 +4964,7 @@ RectTransform:
   - {fileID: 801529539}
   - {fileID: 1049624357}
   - {fileID: 1870348188}
+  - {fileID: 2106809836}
   m_Father: {fileID: 520150898}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -5052,6 +5057,83 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FirePoint
   rotationObject: {fileID: 2066112065}
+--- !u!1 &2106809835
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2106809836}
+  - component: {fileID: 2106809837}
+  - component: {fileID: 2106809838}
+  m_Layer: 5
+  m_Name: BossHpContainer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &2106809836
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2106809835}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2047882034}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 390}
+  m_SizeDelta: {x: 1100, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &2106809837
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2106809835}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59f8146938fff824cb5fd77236b75775, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.VerticalLayoutGroup
+  m_Padding:
+    m_Left: 0
+    m_Right: 0
+    m_Top: 0
+    m_Bottom: 0
+  m_ChildAlignment: 1
+  m_Spacing: 5
+  m_ChildForceExpandWidth: 1
+  m_ChildForceExpandHeight: 1
+  m_ChildControlWidth: 1
+  m_ChildControlHeight: 0
+  m_ChildScaleWidth: 0
+  m_ChildScaleHeight: 0
+  m_ReverseArrangement: 0
+--- !u!114 &2106809838
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2106809835}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3245ec927659c4140ac4f8d17403cc18, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.ContentSizeFitter
+  m_HorizontalFit: 0
+  m_VerticalFit: 2
 --- !u!1 &2142467805
 GameObject:
   m_ObjectHideFlags: 0

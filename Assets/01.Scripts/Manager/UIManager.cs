@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using System.Collections.Generic;
 
 public class UIManager : MonoBehaviour
 {
@@ -11,12 +12,29 @@ public class UIManager : MonoBehaviour
     [SerializeField] private TMP_Text timerText;
     [SerializeField] private Slider hpSlider;
     [SerializeField] private TMP_Text hpText;
+
+    [Header("BOSS UI")]
+    [SerializeField] private Transform bossHpContainer;
+    [SerializeField] private UI_BossHpBar bossHpBarPrefab;
+
+    private List<UI_BossHpBar> activeBossHpBars = new List<UI_BossHpBar>();
+
     private void Awake()
     {
         if (instance == null)
             instance = this;
         else Destroy(gameObject);
-           
+
+    }
+    public void RegisterBoss(Enemy boss)
+    {
+        if (bossHpContainer == null || bossHpBarPrefab == null || boss == null) return;
+
+        if (activeBossHpBars.Exists(bar => bar.targetBoss == boss)) return;
+
+        UI_BossHpBar newHpBar = Instantiate(bossHpBarPrefab, bossHpContainer);
+        newHpBar.Init(boss);
+        activeBossHpBars.Add(newHpBar);
     }
     private void Start()
     {
@@ -62,6 +80,24 @@ public class UIManager : MonoBehaviour
         if (hpText != null)
         {
             hpText.text = $"{Mathf.CeilToInt(currentHp)}/{Mathf.CeilToInt(maxHp)}";
+        }
+    }
+
+    public void UpdateBossHpUI(Enemy boss)
+    {
+        UI_BossHpBar hpBar = activeBossHpBars.Find(bar => bar.targetBoss == boss);
+        if (hpBar != null)
+        {
+            hpBar.UpdateHp();
+        }
+    }
+    public void UnregiterBoss(Enemy boss)
+    {
+        UI_BossHpBar hpBar = activeBossHpBars.Find(bar => bar.targetBoss == boss);
+        if (hpBar != null)
+        {
+            activeBossHpBars.Remove(hpBar);
+            Destroy(hpBar.gameObject);
         }
     }
 }

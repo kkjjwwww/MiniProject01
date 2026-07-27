@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections.Generic;
+using UnityEngine.InputSystem;
 
 public class SpawnManager : MonoBehaviour
 {
@@ -102,6 +103,12 @@ public class SpawnManager : MonoBehaviour
             spawnTimer = 0f;
             TrySpawnEnemy();
         }
+#if UNITY_EDITOR || DEVELOPMENT_BUILD
+        if (Keyboard.current.f1Key.wasPressedThisFrame)
+        {
+            DebugSpawnBoss();
+        }
+#endif
     }
     private void TrySpawnEnemy()
     {
@@ -142,9 +149,21 @@ public class SpawnManager : MonoBehaviour
             boss.InitEnemy(selectedBossPrefab, currentHpMultiplier, currentMoveSpeedMultiplier,true);
 
             activeEnemies.Add(boss);
+
+            if (UIManager.instance != null)
+            {
+                UIManager.instance.RegisterBoss(boss);
+            }
         }
-        //보스 UI 업데이트
+        
     }
+#if UNITY_EDITOR || DEVELOPMENT_BUILD
+    public void DebugSpawnBoss()
+    {
+        Debug.Log("보스 강제스폰");
+        TrySpawnBoss();
+    }
+#endif
 
     public void OnEnemyDespawn(Enemy enemy)
     {

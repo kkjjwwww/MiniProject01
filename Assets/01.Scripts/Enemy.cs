@@ -2,6 +2,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Rendering;
 using DG.Tweening;
+using UnityEditor.Experimental.GraphView;
 
 public class Enemy : MonoBehaviour
 {
@@ -88,6 +89,10 @@ public class Enemy : MonoBehaviour
             spriteRenderer.color = Color.red;
             hitTweener = spriteRenderer.DOColor(originalColor, 0.2f).SetEase(Ease.OutQuad);
         }
+        if(isBoss && UIManager.instance != null)
+        {
+            UIManager.instance.UpdateBossHpUI(this);
+        }
 
         if (currentHp <= 0f)
         {
@@ -115,6 +120,10 @@ public class Enemy : MonoBehaviour
         }
 
         DropExpToken();
+        if(isBoss && UIManager.instance != null)
+        {
+            UIManager.instance.UnregiterBoss(this);
+        }
 
         if (originPrefab != null)
         {
@@ -142,16 +151,31 @@ public class Enemy : MonoBehaviour
     {
         Vector3 dir = (playerTransform.position - transform.position).normalized;
             
-            rb.linearVelocity = dir * finalMoveSpeed;
+        rb.linearVelocity = dir * finalMoveSpeed;
+
+        FlipToPlayer();
+
+    }
+    protected virtual void FlipToPlayer()
+    {
+        if (playerTransform == null) return;
+        Vector3 dir = playerTransform.position - transform.position;
+        FlipToDirection(dir);
+    }
+    public void FlipToDirection(Vector3 dir)
+    {
+        if (spriteRenderer == null) return;
+        spriteRenderer.flipX = dir.x < 0;
     }
     private void KillTween()
     {
-        if (hitTweener.IsActive())
+        if (hitTweener != null && hitTweener.IsActive())
         {
             hitTweener.Kill();
         }
+        if (spriteRenderer != null)
         spriteRenderer.color = originalColor;
-    }
+    }   
     private void OnDestroy()
     {
         KillTween();
@@ -173,6 +197,10 @@ public class Enemy : MonoBehaviour
         if (SpawnManager.instance != null)
         {
             SpawnManager.instance.OnEnemyDespawn(this);
+        }
+        if (isBoss && UIManager.instance != null)
+        {
+            UIManager.instance.UnregiterBoss(this);
         }
         if (originPrefab != null && ObjectPoolManager.instance !=null)
         {

@@ -39,8 +39,17 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Enemies
+    uniqueID: 1425851995
+    locked: 0
+  - name: indicator
+    uniqueID: 3852404229
+    locked: 0
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Boss
+    uniqueID: 283730673
     locked: 0
   m_RenderingLayers:
   - Default
