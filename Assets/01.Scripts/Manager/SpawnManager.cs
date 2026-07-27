@@ -46,6 +46,7 @@ public class SpawnManager : MonoBehaviour
     public float teleportDistance = 20f;
     private float teleportTimer = 0f;
     private float teleportCoolDown = 1f;
+    public float maxAliveTime = 120f;
 
     private void Awake()
     {
@@ -128,7 +129,7 @@ public class SpawnManager : MonoBehaviour
 
         if (boss != null)
         {
-            boss.InitEnemy(selectedBossPrefab, currentHpMultiplier);
+            boss.InitEnemy(selectedBossPrefab, currentHpMultiplier, true);
 
             activeEnemies.Add(boss);
         }
@@ -184,6 +185,10 @@ public class SpawnManager : MonoBehaviour
 
             if (distance >= teleportDistance)
             {
+                if (!enemy.isBoss && (Time.time - enemy.spawnTime >= maxAliveTime))
+                {
+                    enemy.Despawn();
+                }
                 Vector2 randomCircle = Random.insideUnitCircle.normalized * spawnRadius;
                 Vector3 newSpawnPosition = playerTransform.position + new Vector3(randomCircle.x, randomCircle.y, 0f);
 

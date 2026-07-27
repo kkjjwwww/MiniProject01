@@ -13,6 +13,8 @@ public class Enemy : MonoBehaviour
     public float attackDamage { get; private set; } = 10f;
 
     public bool isDead = false;
+    public bool isBoss { get; private set; } = false;
+    public float spawnTime {  get; private set; }
     public float currentHp {  get; private set; }
     private float timeHpMultiplier = 1f;
     public virtual float finalMaxHp => baseMaxHp * timeHpMultiplier;
@@ -59,8 +61,10 @@ public class Enemy : MonoBehaviour
 
     }
 
-    public void InitEnemy(Enemy prefab, float hpMultiplier)
+    public void InitEnemy(Enemy prefab, float hpMultiplier ,bool isBoss = false)
     {
+        this.isBoss = isBoss;
+        this.spawnTime = Time.time;
         SetPrefab(prefab);
         timeHpMultiplier = hpMultiplier;
         currentHp = finalMaxHp;
@@ -161,5 +165,17 @@ public class Enemy : MonoBehaviour
             token.InitToken(expTokenPrefab,expValue);
         }
         
+    }
+    public void Despawn()
+    {
+        if (SpawnManager.instance != null)
+        {
+            SpawnManager.instance.OnEnemyDespawn(this);
+        }
+        if (originPrefab != null && ObjectPoolManager.instance !=null)
+        {
+            ObjectPoolManager.instance.ReturnObject(originPrefab, this);
+        }
+        else gameObject.SetActive(false);
     }
 }
