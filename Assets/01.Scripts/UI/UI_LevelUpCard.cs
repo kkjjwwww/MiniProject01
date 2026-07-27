@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class UI_LevelUpCard : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI nameText;
-    [SerializeField] TextMeshProUGUI decriptionText;
+    [SerializeField] TextMeshProUGUI descriptionText;
     [SerializeField] Image iconImage;
 
     public ItemData assingedItem { get; private set; }
@@ -56,7 +56,7 @@ public class UI_LevelUpCard : MonoBehaviour
 
         if (artifactData == null || artifactData.effects == null) 
         {
-            decriptionText.text = finalDescription; 
+            descriptionText.text = finalDescription; 
             return;
         }
 
@@ -74,7 +74,7 @@ public class UI_LevelUpCard : MonoBehaviour
                 finalDescription += $"\n\n<color=#00FF00>{statText}</color>";
             }
         }
-        decriptionText.text = finalDescription;
+        descriptionText.text = finalDescription;
     }
     private Artifact GetEquippedArtifact(ItemData itemData)
     {
@@ -96,4 +96,15 @@ public class UI_LevelUpCard : MonoBehaviour
         return false;
     }
     
+    public void SetDummyCard(Sprite healIcon = null)
+    {
+        assingedItem = null;
+        nameText.text = "체력 회복";
+        descriptionText.text = "체력을 30% 회복합니다";
+
+        if (healIcon != null)
+        {
+            iconImage.sprite = healIcon;
+        }
+    }
 }

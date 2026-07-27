@@ -7,7 +7,7 @@ public class UI_LevelUp : MonoBehaviour
     [SerializeField] private GameObject UIPanel;
     [SerializeField] private List<ItemData> allItems = new List<ItemData>();
     [SerializeField] private UI_LevelUpCard[] levelUpCards = new UI_LevelUpCard[3];
-
+    [SerializeField] private Sprite healIcon;
     
 
     private void Awake()
@@ -38,6 +38,13 @@ public class UI_LevelUp : MonoBehaviour
             card.gameObject.SetActive(false);
         }
 
+        if (shuffleList.Count == 0)
+        {
+            levelUpCards[0].SetDummyCard(healIcon);
+            levelUpCards[0].gameObject.SetActive(true);
+            return;
+        }
+
         for (int i = 0; i < countToPick; i++)
         {
             int randomIndex = Random.Range(0, shuffleList.Count);
@@ -58,8 +65,12 @@ public class UI_LevelUp : MonoBehaviour
         {
             InventoryManager.instance.AddItem(selectedItem);
         }
+        else if ( selectedItem == null && PlayerStats.instance != null)
+        {
+            PlayerStats.instance.Heal(PlayerStats.instance.finalMaxHp * 0.3f);
+        }
 
-        
+
         Time.timeScale = 1f;
         UIPanel.SetActive(false);
     }

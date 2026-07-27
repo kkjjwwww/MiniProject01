@@ -268,7 +268,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UI_LevelUpCard
   nameText: {fileID: 1281605401}
-  decriptionText: {fileID: 1914347142}
+  descriptionText: {fileID: 1914347142}
   iconImage: {fileID: 2142467807}
 --- !u!1 &134129024
 GameObject:
@@ -2905,6 +2905,7 @@ MonoBehaviour:
   - {fileID: 75248224}
   - {fileID: 1476776643}
   - {fileID: 1912286525}
+  healIcon: {fileID: 0}
 --- !u!1 &1149986917
 GameObject:
   m_ObjectHideFlags: 0
@@ -3460,7 +3461,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UI_LevelUpCard
   nameText: {fileID: 194243631}
-  decriptionText: {fileID: 1883218798}
+  descriptionText: {fileID: 1883218798}
   iconImage: {fileID: 1941441383}
 --- !u!1 &1509729078
 GameObject:
@@ -3985,6 +3986,8 @@ MonoBehaviour:
   spawnRadius: 10
   bossPrefabs: []
   bossInterval: 180
+  teleportDistance: 20
+  maxAliveTime: 120
 --- !u!1 &1793319965
 GameObject:
   m_ObjectHideFlags: 0
@@ -4573,7 +4576,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UI_LevelUpCard
   nameText: {fileID: 289236473}
-  decriptionText: {fileID: 361943758}
+  descriptionText: {fileID: 361943758}
   iconImage: {fileID: 582700305}
 --- !u!1 &1914347140
 GameObject:

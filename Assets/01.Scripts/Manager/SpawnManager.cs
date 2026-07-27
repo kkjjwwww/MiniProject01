@@ -7,6 +7,8 @@ public class SpawnManager : MonoBehaviour
     public float difficultyInterval = 30f;
     [Tooltip("페이즈당 체력 증가량")]
     public float hpIncrease = 0.15f;
+    [Tooltip("페이즈당 이동속도 증가량")]
+    public float moveSpeedIncrease = 0.05f;
 
     public static SpawnManager instance;
 
@@ -39,6 +41,14 @@ public class SpawnManager : MonoBehaviour
         {
             int intervalsPassed = Mathf.FloorToInt(totalGameTime / difficultyInterval);
             return 1f + (intervalsPassed * hpIncrease);
+        }
+    }
+    private float currentMoveSpeedMultiplier
+    {
+        get
+        {
+            int intervalsPassed = Mathf.FloorToInt(totalGameTime / difficultyInterval);
+            return 1f + (intervalsPassed * moveSpeedIncrease);
         }
     }
 
@@ -107,7 +117,7 @@ public class SpawnManager : MonoBehaviour
 
         if (enemy != null)
         {
-            enemy.InitEnemy(selectedPrefab, currentHpMultiplier);
+            enemy.InitEnemy(selectedPrefab, currentHpMultiplier, currentMoveSpeedMultiplier);
 
             activeEnemies.Add(enemy);
         }
@@ -129,7 +139,7 @@ public class SpawnManager : MonoBehaviour
 
         if (boss != null)
         {
-            boss.InitEnemy(selectedBossPrefab, currentHpMultiplier, true);
+            boss.InitEnemy(selectedBossPrefab, currentHpMultiplier, currentMoveSpeedMultiplier,true);
 
             activeEnemies.Add(boss);
         }
@@ -188,6 +198,7 @@ public class SpawnManager : MonoBehaviour
                 if (!enemy.isBoss && (Time.time - enemy.spawnTime >= maxAliveTime))
                 {
                     enemy.Despawn();
+                    continue;
                 }
                 Vector2 randomCircle = Random.insideUnitCircle.normalized * spawnRadius;
                 Vector3 newSpawnPosition = playerTransform.position + new Vector3(randomCircle.x, randomCircle.y, 0f);

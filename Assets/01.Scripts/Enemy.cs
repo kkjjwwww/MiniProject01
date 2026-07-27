@@ -17,8 +17,9 @@ public class Enemy : MonoBehaviour
     public float spawnTime {  get; private set; }
     public float currentHp {  get; private set; }
     private float timeHpMultiplier = 1f;
+    private float timeMoveSpeedMultiplier = 1f;
     public virtual float finalMaxHp => baseMaxHp * timeHpMultiplier;
-    public virtual float finalMoveSpeed => baseMoveSpeed;
+    public virtual float finalMoveSpeed => baseMoveSpeed * timeMoveSpeedMultiplier;
 
     private Enemy originPrefab;
     private Rigidbody2D rb;
@@ -61,12 +62,13 @@ public class Enemy : MonoBehaviour
 
     }
 
-    public void InitEnemy(Enemy prefab, float hpMultiplier ,bool isBoss = false)
+    public void InitEnemy(Enemy prefab, float hpMultiplier , float moveSpeedMultiplier =1f, bool isBoss = false)
     {
         this.isBoss = isBoss;
         this.spawnTime = Time.time;
         SetPrefab(prefab);
         timeHpMultiplier = hpMultiplier;
+        timeMoveSpeedMultiplier = moveSpeedMultiplier;
         currentHp = finalMaxHp;
     }
 

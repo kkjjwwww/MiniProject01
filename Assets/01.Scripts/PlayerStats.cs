@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlayerStats : MonoBehaviour
@@ -24,7 +25,12 @@ public class PlayerStats : MonoBehaviour
     public float finalCoolDownReduction => baseCoolDownReduction + bonusCoolDownReduction;
     //public float finalAttackSpeed => baseAttackSpeed + bonusAttackSpeed;
 
-    public float currentHp { get; private set; }
+    private float _currentHp;
+    public float currentHp
+    {
+        get => _currentHp;
+        private set => _currentHp = Mathf.Clamp(value, 0f, finalMaxHp);
+    }
 
     private void Awake()
     {
@@ -52,7 +58,7 @@ public class PlayerStats : MonoBehaviour
         ApplyShopStats();
 
         currentHp = finalMaxHp;
-        UIManager.instance.UpdateHpBarUI(currentHp, finalMaxHp);
+        UpdateHpUI();
     }
 
     public void TakeDamage(float damage)
@@ -62,10 +68,8 @@ public class PlayerStats : MonoBehaviour
 
         Debug.Log($"Player Take Damage {damage}, {currentHp}/{finalMaxHp}");
 
-        if (UIManager.instance != null)
-        {
-            UIManager.instance.UpdateHpBarUI(currentHp, finalMaxHp);
-        }
+        UpdateHpUI();
+
         if (currentHp <= 0)
         {
             Die();
@@ -78,6 +82,20 @@ public class PlayerStats : MonoBehaviour
         GameManager.instance.GameOver();
     }
 
+    public void Heal(float value)
+    {
+        if (value <= 0f) return;
+        currentHp += value;
+        UpdateHpUI();
+    }
+
+    public void UpdateHpUI()
+    {
+        if (UIManager.instance != null)
+        {
+            UIManager.instance.UpdateHpBarUI(currentHp, finalMaxHp);
+        }
+    }
     private void ApplyShopStats()
     {
         if (ShopManager.instance == null)
