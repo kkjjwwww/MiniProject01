@@ -15,7 +15,7 @@ MonoBehaviour:
   statID: 2
   statName: "\uACF5\uACA9\uB825"
   statDescription: "\uBB34\uAE30 \uACF5\uACA9\uB825\uC774 {0} \uC99D\uAC00\uD569\uB2C8\uB2E4"
-  icon: {fileID: 0}
+  icon: {fileID: -1400734978927520801, guid: 3ad2bd9d964de2c43870cb90655eea20, type: 3}
   statType: 7
   baseCost: 100
   maxLevel: 5

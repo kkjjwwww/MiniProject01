@@ -15,7 +15,7 @@ MonoBehaviour:
   statID: 4
   statName: "\uAD70\uB7C9"
   statDescription: "\uAD70\uB7C9\uC758 \uD68D\uB4DD\uB7C9\uC774 {0:P0} \uC99D\uAC00\uD569\uB2C8\uB2E4"
-  icon: {fileID: 0}
+  icon: {fileID: 4852012725099161135, guid: 47ce4c2e30ed50b4ba883c10eb627d17, type: 3}
   statType: 4
   baseCost: 100
   maxLevel: 5
