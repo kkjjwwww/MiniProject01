@@ -5,6 +5,9 @@ TagManager:
   serializedVersion: 3
   tags:
   - Enemy
+  - LargeTile
+  - LevelChanger
+  - DangerousTile
   layers:
   - Default
   - TransparentFX
@@ -39,6 +42,9 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Map
+    uniqueID: 1887652985
+    locked: 0
   - name: Enemies
     uniqueID: 1425851995
     locked: 0
