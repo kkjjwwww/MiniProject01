@@ -64,5 +64,7 @@ public abstract class Weapon : MonoBehaviour
         CustomizeWeapon(dir);
     }
     public abstract void CustomizeWeapon(Vector2 direction);
+
+    
  
 }
