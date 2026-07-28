@@ -38,6 +38,12 @@ public class InventoryManager : MonoBehaviour
             equippedItems.Add(newItem);
             Debug.Log($"add new item {artifactData.itemName}");
         }
+
+        //아티팩트 HUD 갱신
+        if (UI_ArtifactIconHUD.instance != null)
+        {
+            UI_ArtifactIconHUD.instance.RefreshArtifactUI();
+        }
     }
 
 }
