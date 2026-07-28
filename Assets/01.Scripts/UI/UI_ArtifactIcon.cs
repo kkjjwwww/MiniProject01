@@ -1,16 +1,19 @@
 using UnityEngine;
-
+using UnityEngine.UI;
 public class UI_ArtifactIcon : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
+    [SerializeField] private Image iconImage;
 
-    // Update is called once per frame
-    void Update()
+    public void SetArtifact(Artifact artifact)
     {
-        
+        if (artifact != null && artifact.artifactData != null && artifact.artifactData.itemIcon != null)
+        {
+            iconImage.sprite = artifact.artifactData.itemIcon;
+            iconImage.gameObject.SetActive(true);
+        }
+        else
+        {
+            gameObject.SetActive(false);
+        }
     }
 }
