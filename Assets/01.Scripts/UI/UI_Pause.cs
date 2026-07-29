@@ -11,6 +11,7 @@ public class UI_Pause : MonoBehaviour
     [SerializeField] private GameObject pausePanel;
 
     [SerializeField] private Slider bgmVolumeSlider;
+    [SerializeField] private Slider sfxVolumeSlider;
     [SerializeField] private Button resumeButton;
     [SerializeField] private Button giveUpButton;
 
@@ -42,6 +43,18 @@ public class UI_Pause : MonoBehaviour
                 bgmVolumeSlider.value = PlayerPrefs.GetFloat("BGMVolume", 0.5f);
             }
             bgmVolumeSlider.onValueChanged.AddListener(OnBGMVolumeChanged);
+        }
+        if (sfxVolumeSlider != null)
+        {
+            if (SFX_Manager.instance != null)
+            {
+                sfxVolumeSlider.value = SFX_Manager.instance.GetVolume();
+            }
+            else
+            {
+                sfxVolumeSlider.value = PlayerPrefs.GetFloat("SFXVolume", 0.5f);
+            }
+            sfxVolumeSlider.onValueChanged.AddListener(OnSFXVolumeChanged);
         }
     }
 
@@ -83,6 +96,13 @@ public class UI_Pause : MonoBehaviour
         if (BGM_Manager.instance != null)
         {
             BGM_Manager.instance.SetVolume(value);
+        }
+    }
+    private void OnSFXVolumeChanged(float value)
+    {
+        if (SFX_Manager.instance != null)
+        {
+            SFX_Manager.instance.SetVolume(value);
         }
     }
     public void GiveUpGame()
