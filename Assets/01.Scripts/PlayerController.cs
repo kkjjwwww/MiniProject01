@@ -132,7 +132,7 @@ public class PlayerController : MonoBehaviour
         Debug.Log($"현재 경험치{currentExp}/{maxExp}");
         if (SFX_Manager.instance != null)
         {
-            SFX_Manager.instance.PlayExpSFX();
+            SFX_Manager.instance.PlayExpSFX();  
         }
         if (UIManager.instance != null)
         {
@@ -179,7 +179,15 @@ public class PlayerController : MonoBehaviour
     {
         invincible = true;
         damageTween?.Kill();
-        damageTween = sr.DOColor(Color.white, 0.1f).SetLoops(4, LoopType.Yoyo).OnComplete(() => { sr.color = originColor; invincible = false; });
+
+        if (animator != null) animator.enabled = false;
+
+        damageTween = sr.DOFade(0.2f, 0.1f).SetLoops(2, LoopType.Yoyo).OnComplete(() => 
+        { 
+            sr.color = originColor; 
+            invincible = false; 
+            animator.enabled = true;
+        });
     }
     
     private void OnTriggerStay2D(Collider2D collision)
