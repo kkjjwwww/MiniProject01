@@ -23,6 +23,11 @@ public class UI_LevelUp : MonoBehaviour
         Time.timeScale = 0f;
         UIPanel.SetActive(true);
 
+        if (SFX_Manager.instance != null)
+        {
+            SFX_Manager.instance.PlayLevelUpSFX();
+        }
+
         PickRandomRewards();
     }
     private void PickRandomRewards()

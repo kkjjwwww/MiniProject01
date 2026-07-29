@@ -8,6 +8,10 @@ public class SFX_Manager : MonoBehaviour
 
     [SerializeField] private AudioClip playerHitSFX;
     [SerializeField] private AudioClip enemyHitSFX;
+    [SerializeField] private AudioClip gameOverSFX;
+    [SerializeField] private AudioClip buttonClickSFX;
+    [SerializeField] private AudioClip levelUpSFX;
+    [SerializeField] private AudioClip gameStartSfx;
 
     private int lastFrame = -1;
 
@@ -44,6 +48,35 @@ public class SFX_Manager : MonoBehaviour
             sfxSource.PlayOneShot(enemyHitSFX);
         }
     }
+    public void PlayButtonClickSFX()
+    {
+        if (sfxSource != null && buttonClickSFX != null)
+        {
+            sfxSource.PlayOneShot(buttonClickSFX);
+        }
+    }
+    public void PlayLevelUpSFX()
+    {
+        if (sfxSource != null && levelUpSFX != null)
+        {
+            sfxSource.PlayOneShot(levelUpSFX);
+        }
+    }
+    public void PlayGameStartSFX()
+    {
+        if (sfxSource != null && gameStartSfx != null)
+        {
+            sfxSource.PlayOneShot(gameStartSfx);
+        }
+    }
+    public void PlayGameOverSFX()
+    {
+        if (sfxSource != null && gameOverSFX != null)
+        {
+            sfxSource.PlayOneShot(gameOverSFX);
+        }
+    }
+
     public void PlaySFX(AudioClip clip)
     {
         if (sfxSource != null && clip != null)

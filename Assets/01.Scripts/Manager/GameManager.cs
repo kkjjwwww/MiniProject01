@@ -31,6 +31,11 @@ public class GameManager : MonoBehaviour
         isGameOver = true;
         float timeRecord = SpawnManager.instance.totalGameTime; 
 
+        if (SFX_Manager.instance != null)
+        {
+            SFX_Manager.instance.PlayGameOverSFX();
+        }
+
         int achieveCurrency = Mathf.FloorToInt(killCount * addCurrencyRatio);
         if (CurrencyManager.instance != null)
         {

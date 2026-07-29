@@ -346,6 +346,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1406574629}
+        m_TargetAssemblyTypeName: SFX_Manager, Assembly-CSharp
+        m_MethodName: PlayButtonClickSFX
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &36388467
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2601,6 +2613,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1406574629}
+        m_TargetAssemblyTypeName: SFX_Manager, Assembly-CSharp
+        m_MethodName: PlayGameStartSFX
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1326304524
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2732,6 +2756,10 @@ MonoBehaviour:
   sfxSource: {fileID: 1406574630}
   playerHitSFX: {fileID: 8300000, guid: 32ce1af71ba71da42864c2f305700adb, type: 3}
   enemyHitSFX: {fileID: 8300000, guid: ce3bb0337a4d37c48be1b764e610a137, type: 3}
+  gameOverSFX: {fileID: 8300000, guid: 9b4fe662db37a85478819a0b68ab4559, type: 3}
+  buttonClickSFX: {fileID: 8300000, guid: eeba521f27c46ad46957d0d4c2e6d45e, type: 3}
+  levelUpSFX: {fileID: 8300000, guid: d0e4c66f23f80bd4e9c2abaa22c4e01b, type: 3}
+  gameStartSfx: {fileID: 8300000, guid: bdb81a38f63e4b14cb8e8bd1c3f042e8, type: 3}
 --- !u!82 &1406574630
 AudioSource:
   m_ObjectHideFlags: 0
@@ -3631,6 +3659,18 @@ MonoBehaviour:
       - m_Target: {fileID: 521878294}
         m_TargetAssemblyTypeName: UI_Shop, Assembly-CSharp
         m_MethodName: OpenShop
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1406574629}
+        m_TargetAssemblyTypeName: SFX_Manager, Assembly-CSharp
+        m_MethodName: PlayButtonClickSFX
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
