@@ -1,0 +1,418 @@
+fileFormatVersion: 2
+guid: 414b32727118fd945b4d009f697841b3
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -8858594395964548554
+    second: GuanYu_AnimeSpriteSheet_transparent_v2_0
+  - first:
+      213: 7165056688561963466
+    second: GuanYu_AnimeSpriteSheet_transparent_v2_1
+  - first:
+      213: -4558984067683060058
+    second: GuanYu_AnimeSpriteSheet_transparent_v2_2
+  - first:
+      213: -8846290381812393660
+    second: GuanYu_AnimeSpriteSheet_transparent_v2_3
+  - first:
+      213: -4751149503492120058
+    second: GuanYu_AnimeSpriteSheet_transparent_v2_4
+  - first:
+      213: 2463190754373853447
+    second: GuanYu_AnimeSpriteSheet_transparent_v2_5
+  - first:
+      213: -8035861170845356868
+    second: GuanYu_AnimeSpriteSheet_transparent_v2_6
+  - first:
+      213: -8615354007655342176
+    second: GuanYu_AnimeSpriteSheet_transparent_v2_7
+  - first:
+      213: 8108478195605963226
+    second: GuanYu_AnimeSpriteSheet_transparent_v2_8
+  - first:
+      213: -5075468176230156320
+    second: GuanYu_AnimeSpriteSheet_transparent_v2_9
+  - first:
+      213: 3669086261126233073
+    second: GuanYu_AnimeSpriteSheet_transparent_v2_10
+  - first:
+      213: -8082580183394227361
+    second: GuanYu_AnimeSpriteSheet_transparent_v2_11
+  - first:
+      213: 6506648560197207577
+    second: GuanYu_AnimeSpriteSheet_transparent_v2_12
+  - first:
+      213: -2089629343598190274
+    second: GuanYu_AnimeSpriteSheet_transparent_v2_13
+  - first:
+      213: 8855120116015372197
+    second: GuanYu_AnimeSpriteSheet_transparent_v2_14
+  - first:
+      213: 3393707721743489818
+    second: GuanYu_AnimeSpriteSheet_transparent_v2_15
+  - first:
+      213: -5821371861559408108
+    second: GuanYu_AnimeSpriteSheet_transparent_v2_16
+  - first:
+      213: -7406319490761002894
+    second: GuanYu_AnimeSpriteSheet_transparent_v2_17
+  - first:
+      213: 160237690097777337
+    second: GuanYu_AnimeSpriteSheet_transparent_v2_18
+  - first:
+      213: -2747690978915372056
+    second: GuanYu_AnimeSpriteSheet_transparent_v2_19
+  - first:
+      213: 6521743934358429337
+    second: GuanYu_AnimeSpriteSheet_transparent_v2_20
+  - first:
+      213: -218221495185289898
+    second: GuanYu_AnimeSpriteSheet_transparent_v2_21
+  - first:
+      213: 4775931583663179714
+    second: GuanYu_AnimeSpriteSheet_transparent_v2_22
+  - first:
+      213: -4232312974765728735
+    second: GuanYu_AnimeSpriteSheet_transparent_v2_23
+  - first:
+      213: 5464122155160215473
+    second: GuanYu_AnimeSpriteSheet_transparent_v2_24
+  - first:
+      213: 7799594296837215754
+    second: GuanYu_AnimeSpriteSheet_transparent_v2_25
+  - first:
+      213: 7226274211039193776
+    second: GuanYu_AnimeSpriteSheet_transparent_v2_26
+  - first:
+      213: -8326456885383524931
+    second: GuanYu_AnimeSpriteSheet_transparent_v2_27
+  - first:
+      213: -4402623028206317859
+    second: GuanYu_AnimeSpriteSheet_transparent_v2_28
+  - first:
+      213: 5280639681452009964
+    second: GuanYu_AnimeSpriteSheet_transparent_v2_29
+  - first:
+      213: 697533869844091658
+    second: GuanYu_AnimeSpriteSheet_transparent_v2_30
+  - first:
+      213: 24098078997584236
+    second: GuanYu_AnimeSpriteSheet_transparent_v2_31
+  - first:
+      213: 4141068856471033159
+    second: GuanYu_AnimeSpriteSheet_transparent_v2_32
+  - first:
+      213: -8141778504953103378
+    second: GuanYu_AnimeSpriteSheet_transparent_v2_33
+  - first:
+      213: -2629367858591811279
+    second: GuanYu_AnimeSpriteSheet_transparent_v2_34
+  - first:
+      213: 7320223947205599241
+    second: GuanYu_AnimeSpriteSheet_transparent_v2_35
+  - first:
+      213: 4193108640479604809
+    second: GuanYu_AnimeSpriteSheet_transparent_v2_36
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 180
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WindowsStoreApps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: GuanYu_AnimeSpriteSheet_transparent_v2_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 607
+        width: 256
+        height: 333
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 63a544be453ff0580800000000000000
+      internalID: -8858594395964548554
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GuanYu_AnimeSpriteSheet_transparent_v2_2
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 179
+        width: 267
+        height: 333
+      alignment: 9
+      pivot: {x: 0.6316001, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6a6f51d152c3bb0c0800000000000000
+      internalID: -4558984067683060058
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GuanYu_AnimeSpriteSheet_transparent_v2_3
+      rect:
+        serializedVersion: 2
+        x: 267
+        y: 179
+        width: 254
+        height: 333
+      alignment: 9
+      pivot: {x: 0.6317484, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4491e1474c9ab3580800000000000000
+      internalID: -8846290381812393660
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GuanYu_AnimeSpriteSheet_transparent_v2_4
+      rect:
+        serializedVersion: 2
+        x: 521
+        y: 179
+        width: 247
+        height: 333
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 602249103b6801eb0800000000000000
+      internalID: -4751149503492120058
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GuanYu_AnimeSpriteSheet_transparent_v2_5
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 179
+        width: 256
+        height: 333
+      alignment: 9
+      pivot: {x: 0.58334446, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 701ea78c0f20f2220800000000000000
+      internalID: 2463190754373853447
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GuanYu_AnimeSpriteSheet_transparent_v2_6
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 179
+        width: 253
+        height: 333
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cbc686747d2ea7090800000000000000
+      internalID: -8035861170845356868
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GuanYu_AnimeSpriteSheet_transparent_v2_7
+      rect:
+        serializedVersion: 2
+        x: 1277
+        y: 179
+        width: 259
+        height: 333
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0af17771d2d107880800000000000000
+      internalID: -8615354007655342176
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: fceb61b7613432446ae7543c595ae1a8
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":6.0,"y":2.0},"gridSpriteSize":{"x":256.0,"y":512.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
+    nameFileIdTable:
+      GuanYu_AnimeSpriteSheet_transparent_v2_0: -8858594395964548554
+      GuanYu_AnimeSpriteSheet_transparent_v2_1: 7165056688561963466
+      GuanYu_AnimeSpriteSheet_transparent_v2_2: -4558984067683060058
+      GuanYu_AnimeSpriteSheet_transparent_v2_3: -8846290381812393660
+      GuanYu_AnimeSpriteSheet_transparent_v2_4: -4751149503492120058
+      GuanYu_AnimeSpriteSheet_transparent_v2_5: 2463190754373853447
+      GuanYu_AnimeSpriteSheet_transparent_v2_6: -8035861170845356868
+      GuanYu_AnimeSpriteSheet_transparent_v2_7: -8615354007655342176
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

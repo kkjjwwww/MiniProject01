@@ -1,3 +1,4 @@
+using System.Xml.Serialization;
 using UnityEngine;
 
 public class SFX_Manager : MonoBehaviour
@@ -12,6 +13,7 @@ public class SFX_Manager : MonoBehaviour
     [SerializeField] private AudioClip buttonClickSFX;
     [SerializeField] private AudioClip levelUpSFX;
     [SerializeField] private AudioClip gameStartSfx;
+    [SerializeField] private AudioClip expSFX;
 
     private int lastFrame = -1;
 
@@ -76,7 +78,13 @@ public class SFX_Manager : MonoBehaviour
             sfxSource.PlayOneShot(gameOverSFX);
         }
     }
-
+    public void PlayExpSFX()
+    {
+        if (sfxSource != null && expSFX != null)
+        {
+            sfxSource.PlayOneShot(expSFX);
+        }
+    }
     public void PlaySFX(AudioClip clip)
     {
         if (sfxSource != null && clip != null)

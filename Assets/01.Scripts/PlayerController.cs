@@ -14,7 +14,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Transform rotationPivot;
     public Transform RotationPivot => rotationPivot;
 
-    
+    private Animator animator;
 
     private Rigidbody2D rb;
     private Vector3 dir;
@@ -23,7 +23,6 @@ public class PlayerController : MonoBehaviour
     public float currentExp = 0f;
     public float maxExp = 100;
     [SerializeField] private float increaseMaxExpPerLevel = 1.2f;
-
     
     private bool invincible = false;
     private Tween damageTween;
@@ -46,6 +45,7 @@ public class PlayerController : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         sr = GetComponent<SpriteRenderer>();
         originColor = sr.color;
+        animator = GetComponent<Animator>();
         expBonusMultiplier += ShopManager.instance.GetTotalBonusValue(ShopStatType.ExpBonus);
     }
 
@@ -66,8 +66,21 @@ public class PlayerController : MonoBehaviour
         if (Keyboard.current.dKey.isPressed)
             x = 1f;
 
+        
         dir = new Vector3(x, y).normalized;
+        bool isMoving = dir.sqrMagnitude > 0;
+        if (animator != null )
+        {
+            animator.SetBool("isRun", isMoving);
+        }
 
+        if (sr != null)
+        {
+            if (x < 0)
+                sr.flipX = true;
+            else if (x>0)
+                sr.flipX = false;
+        }
         Attack();
 
 #if UNITY_EDITOR
@@ -117,6 +130,10 @@ public class PlayerController : MonoBehaviour
     {
         currentExp += value * expBonusMultiplier;
         Debug.Log($"현재 경험치{currentExp}/{maxExp}");
+        if (SFX_Manager.instance != null)
+        {
+            SFX_Manager.instance.PlayExpSFX();
+        }
         if (UIManager.instance != null)
         {
             UIManager.instance.UpdateExpUI(currentExp, maxExp, currentLevel);
