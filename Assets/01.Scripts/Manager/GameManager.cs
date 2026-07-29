@@ -29,7 +29,7 @@ public class GameManager : MonoBehaviour
     public void GameOver()
     {
         isGameOver = true;
-        float timeRecord = SpawnManager.instance.totalGameTime;
+        float timeRecord = SpawnManager.instance.totalGameTime; 
 
         int achieveCurrency = Mathf.FloorToInt(killCount * addCurrencyRatio);
         if (CurrencyManager.instance != null)
