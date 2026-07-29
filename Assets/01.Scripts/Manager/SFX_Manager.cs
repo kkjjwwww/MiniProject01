@@ -9,6 +9,8 @@ public class SFX_Manager : MonoBehaviour
     [SerializeField] private AudioClip playerHitSFX;
     [SerializeField] private AudioClip enemyHitSFX;
 
+    private int lastFrame = -1;
+
     private void Awake()
     {
         if (instance == null)
@@ -33,6 +35,8 @@ public class SFX_Manager : MonoBehaviour
     {
         if (sfxSource != null && enemyHitSFX != null)
         {
+            if (Time.frameCount == lastFrame) return;
+            lastFrame = Time.frameCount;
             sfxSource.PlayOneShot(enemyHitSFX);
         }
     }
