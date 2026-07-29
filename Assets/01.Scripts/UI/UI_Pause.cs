@@ -33,7 +33,14 @@ public class UI_Pause : MonoBehaviour
 
         if (bgmVolumeSlider != null)
         {
-            bgmVolumeSlider.value = 0.5f;
+            if (BGM_Manager.instance != null)
+            {
+                bgmVolumeSlider.value = BGM_Manager.instance.GetVolume();
+            }
+            else
+            {
+                bgmVolumeSlider.value = PlayerPrefs.GetFloat("BGMVolume", 0.5f);
+            }
             bgmVolumeSlider.onValueChanged.AddListener(OnBGMVolumeChanged);
         }
     }
