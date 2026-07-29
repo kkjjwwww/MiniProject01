@@ -49,6 +49,7 @@ public class UI_Pause : MonoBehaviour
     {
         if (Keyboard.current.escapeKey.wasPressedThisFrame)
         {
+            if (!isPaused && Time.timeScale == 0f) return;
             TogglePause();
         }
     }

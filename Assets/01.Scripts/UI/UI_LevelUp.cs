@@ -8,7 +8,7 @@ public class UI_LevelUp : MonoBehaviour
     [SerializeField] private List<ItemData> allItems = new List<ItemData>();
     [SerializeField] private UI_LevelUpCard[] levelUpCards = new UI_LevelUpCard[3];
     [SerializeField] private Sprite healIcon;
-    
+
 
     private void Awake()
     {

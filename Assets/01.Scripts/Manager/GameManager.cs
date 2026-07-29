@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour
 
     public float addCurrencyRatio = 1f;
 
+    public bool isGameOver { get; private set; } = false;
 
     private void Awake()
     {
@@ -27,6 +28,7 @@ public class GameManager : MonoBehaviour
     }
     public void GameOver()
     {
+        isGameOver = true;
         float timeRecord = SpawnManager.instance.totalGameTime;
 
         int achieveCurrency = Mathf.FloorToInt(killCount * addCurrencyRatio);
