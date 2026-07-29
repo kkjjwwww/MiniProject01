@@ -12,6 +12,7 @@ public class BGM_Manager : MonoBehaviour
     [SerializeField] private string inGameSceneName = "InGameScene";
     private AudioSource audioSource;
 
+    private const string BGM_VOLUME_KEY = "BGMVolume";
     private void Awake()
     {
         if (instance == null)
@@ -26,6 +27,9 @@ public class BGM_Manager : MonoBehaviour
             }
             audioSource.loop = true;
             audioSource.playOnAwake = false;
+
+            float savedVolume = PlayerPrefs.GetFloat(BGM_VOLUME_KEY, 0.5f);
+            audioSource.volume = savedVolume;
         }
         else
         {
@@ -68,6 +72,12 @@ public class BGM_Manager : MonoBehaviour
         if (audioSource != null)
         {
             audioSource.volume = volume;
+            PlayerPrefs.SetFloat(BGM_VOLUME_KEY, volume);
+            PlayerPrefs.Save();
         }
+    }
+    public float GetVolume()
+    {
+        return audioSource != null ? audioSource.volume : PlayerPrefs.GetFloat(BGM_VOLUME_KEY,0.5f);
     }
 }
