@@ -78,6 +78,12 @@ public class Enemy : MonoBehaviour
 
         currentHp -= damageAmount;
         Debug.Log($"{enemyName}has take damaged{damageAmount} {currentHp}/{finalMaxHp}");
+
+        if (SFX_Manager.instance != null )
+        {
+            SFX_Manager.instance.PlayEnemyHitSFX();
+        }
+
         if (spriteRenderer != null )
         {
             if (hitTweener != null && hitTweener.IsActive())

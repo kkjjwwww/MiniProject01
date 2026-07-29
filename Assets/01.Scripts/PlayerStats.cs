@@ -68,6 +68,11 @@ public class PlayerStats : MonoBehaviour
 
         Debug.Log($"Player Take Damage {damage}, {currentHp}/{finalMaxHp}");
 
+        if (SFX_Manager.instance != null)
+        {
+            SFX_Manager.instance.PlayPlayerHitSFX();
+        }
+
         UpdateHpUI();
 
         if (currentHp <= 0)
