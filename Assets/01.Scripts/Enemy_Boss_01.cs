@@ -12,6 +12,14 @@ public class Enemy_Boss_01 : Enemy_Boss
     private bool isDashing = false;
     private Sequence currentDashSequence;
 
+    private Animator animator;
+
+    protected override void Awake()
+    {
+        base.Awake();
+        animator = GetComponent<Animator>();
+    }
+
     protected override void OnEnable()
     {
         base.OnEnable();
@@ -57,6 +65,8 @@ public class Enemy_Boss_01 : Enemy_Boss
 
                 ShowWarningLine(targetDir);
 
+                if (animator != null) animator.SetBool("isAttack", true);
+
                 DOVirtual.DelayedCall(warningTime, () =>
                 {
                     if (warningIndicator != null) warningIndicator.gameObject.SetActive(false);
@@ -71,6 +81,7 @@ public class Enemy_Boss_01 : Enemy_Boss
         currentDashSequence.OnComplete(() =>
         {
             isDashing = false;
+            if (animator != null) animator.SetBool("isAttack", false);
         });
     }
     private void ShowWarningLine(Vector3 targetDir)
@@ -107,6 +118,8 @@ public class Enemy_Boss_01 : Enemy_Boss
             warningIndicator.gameObject.SetActive(false);
         }
         isDashing =false;
+
+        if (animator != null) animator.SetBool("isAttack", false);
     }
  
 }

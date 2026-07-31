@@ -1,4 +1,3 @@
-using System.Xml.Serialization;
 using UnityEngine;
 
 public class SFX_Manager : MonoBehaviour
@@ -29,6 +28,7 @@ public class SFX_Manager : MonoBehaviour
         else
         {
             Destroy(gameObject);
+            return;
         }
         float savedVolume = PlayerPrefs.GetFloat(SFX_VOLUME_KEY, 0.5f);
         sfxSource.volume = savedVolume;

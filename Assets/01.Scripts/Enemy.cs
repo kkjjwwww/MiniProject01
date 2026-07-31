@@ -1,6 +1,4 @@
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.Rendering;
 using DG.Tweening;
 
 public class Enemy : MonoBehaviour
@@ -26,8 +24,10 @@ public class Enemy : MonoBehaviour
     protected Transform playerTransform;
 
     private SpriteRenderer spriteRenderer;
-    private Color originalColor;
-    private Tweener hitTweener;
+
+    private Material hitMaterial;
+    private Material defaultMaterial;
+    private Tween hitMaterialTween;
 
     [SerializeField] private ExpToken expTokenPrefab;
     [SerializeField] private float expValue = 10;
@@ -35,15 +35,21 @@ public class Enemy : MonoBehaviour
     protected virtual void Awake()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
-        if (spriteRenderer != null)
+        defaultMaterial = spriteRenderer.material;
+
+        if (hitMaterial == null)
         {
-            originalColor = spriteRenderer.color;
+            hitMaterial = Resources.Load<Material>("M_HitEnemy");
+            if (hitMaterial == null)
+            {
+                Debug.LogError("Resources/M_HitEnemy is null");
+            }
         }
+        
     }
 
     protected virtual void OnEnable()
     {
-        spriteRenderer.color = originalColor;
         if (enemyData != null)
         {
             enemyName = enemyData.enemyName;
@@ -84,15 +90,18 @@ public class Enemy : MonoBehaviour
             SFX_Manager.instance.PlayEnemyHitSFX();
         }
 
-        if (spriteRenderer != null )
+        if (spriteRenderer != null && hitMaterial != null )
         {
-            if (hitTweener != null && hitTweener.IsActive())
+            if (hitMaterialTween != null && hitMaterialTween.IsActive())
             {
-                hitTweener.Kill();
-                spriteRenderer.color = originalColor;
+                hitMaterialTween.Kill();
             }
-            spriteRenderer.color = Color.red;
-            hitTweener = spriteRenderer.DOColor(originalColor, 0.2f).SetEase(Ease.OutQuad);
+            spriteRenderer.material = hitMaterial;
+
+            hitMaterialTween = DOVirtual.DelayedCall(0.08f, () =>
+            {
+                spriteRenderer.material = defaultMaterial;
+            });
         }
         if(isBoss && UIManager.instance != null)
         {
@@ -174,12 +183,14 @@ public class Enemy : MonoBehaviour
     }
     private void KillTween()
     {
-        if (hitTweener != null && hitTweener.IsActive())
+        if (hitMaterialTween != null && hitMaterialTween.IsActive())
         {
-            hitTweener.Kill();
+            hitMaterialTween.Kill();
         }
-        if (spriteRenderer != null)
-        spriteRenderer.color = originalColor;
+        if (spriteRenderer != null && defaultMaterial != null)
+        {
+            spriteRenderer.material = defaultMaterial;
+        }
     }   
     private void OnDestroy()
     {
