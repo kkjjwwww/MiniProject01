@@ -20665,6 +20665,9 @@ MonoBehaviour:
   - phaseName: 90sec
     startPhaseTimeSec: 90
     spawnData: {fileID: 11400000, guid: 6d3828a6d7ca43345a94e5a2acb55f6c, type: 2}
+  - phaseName: 120sec
+    startPhaseTimeSec: 120
+    spawnData: {fileID: 11400000, guid: 6ef98a36908d14b43aa1c33c70862198, type: 2}
   spawnRadius: 10
   bossPrefabs:
   - {fileID: 1566776963040517246, guid: b85fb0d2a2b67904ebad1cf6120bfb68, type: 3}
