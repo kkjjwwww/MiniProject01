@@ -1,0 +1,424 @@
+fileFormatVersion: 2
+guid: 7fae13e828b132f40ba3d66c4f49067d
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 1641622529246481299
+    second: armor_run_large_white_spaces_removed_0
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WindowsStoreApps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: armor_run_large_white_spaces_removed_0
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 288
+        width: 168
+        height: 284
+      alignment: 9
+      pivot: {x: 0.7525159, y: 0.74273545}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 39bc30f1ef638c610800000000000000
+      internalID: 1641622529246481299
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: armor_run_large_white_spaces_removed_1
+      rect:
+        serializedVersion: 2
+        x: 173
+        y: 289
+        width: 166
+        height: 283
+      alignment: 9
+      pivot: {x: 0.6460334, y: 0.7676849}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 445b3a1cdf8c8c14fbf6cd371511e724
+      internalID: 972785427
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: armor_run_large_white_spaces_removed_2
+      rect:
+        serializedVersion: 2
+        x: 345
+        y: 288
+        width: 165
+        height: 284
+      alignment: 9
+      pivot: {x: 0.6423273, y: 0.76407504}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eee336c83c1390640a30ef1fc631f895
+      internalID: -988846127
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: armor_run_large_white_spaces_removed_3
+      rect:
+        serializedVersion: 2
+        x: 514
+        y: 288
+        width: 166
+        height: 284
+      alignment: 9
+      pivot: {x: 0.75099456, y: 0.75340515}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2a649eefd062c2e479ac823425ac8a21
+      internalID: -1301031554
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: armor_run_large_white_spaces_removed_4
+      rect:
+        serializedVersion: 2
+        x: 685
+        y: 288
+        width: 165
+        height: 284
+      alignment: 9
+      pivot: {x: 0.7341512, y: 0.71339375}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 05d9e929e11137546a98500fdd3321cf
+      internalID: -548566259
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: armor_run_large_white_spaces_removed_5
+      rect:
+        serializedVersion: 2
+        x: 855
+        y: 288
+        width: 165
+        height: 284
+      alignment: 9
+      pivot: {x: 0.6515096, y: 0.76140743}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d385787a7f6249c4b8b1d5a94b99035a
+      internalID: 1716904013
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: armor_run_large_white_spaces_removed_6
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 0
+        width: 167
+        height: 284
+      alignment: 9
+      pivot: {x: 0.6406227, y: 0.7960839}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8ab964632e161c748811536ea678d8c8
+      internalID: -361674104
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: armor_run_large_white_spaces_removed_7
+      rect:
+        serializedVersion: 2
+        x: 173
+        y: 0
+        width: 166
+        height: 283
+      alignment: 9
+      pivot: {x: 0.62777966, y: 0.7998069}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 48e0ed6c87e5eb74c9bf6ed58c92a2e0
+      internalID: 2139687176
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: armor_run_large_white_spaces_removed_8
+      rect:
+        serializedVersion: 2
+        x: 344
+        y: 0
+        width: 166
+        height: 284
+      alignment: 9
+      pivot: {x: 0.6414698, y: 0.79608375}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2f08b1d71fdb4ad48ac901a79dd89ddd
+      internalID: -957877198
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: armor_run_large_white_spaces_removed_9
+      rect:
+        serializedVersion: 2
+        x: 515
+        y: 0
+        width: 165
+        height: 283
+      alignment: 9
+      pivot: {x: 0.61937183, y: 0.79713}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4a7a9ae506c12dc4e9b0ab12a11c7108
+      internalID: -557364504
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: armor_run_large_white_spaces_removed_10
+      rect:
+        serializedVersion: 2
+        x: 685
+        y: 0
+        width: 165
+        height: 284
+      alignment: 9
+      pivot: {x: 0.62855375, y: 0.79608375}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c0d2a26c1c14a6f46ba471ff3dc6ba44
+      internalID: -1121285872
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: armor_run_large_white_spaces_removed_11
+      rect:
+        serializedVersion: 2
+        x: 855
+        y: 0
+        width: 165
+        height: 284
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 40cc8a208740fe44086c87e2df6ca806
+      internalID: 1313139025
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 1dbfa4b71e02d3c4b9b206a03c92b1f0
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":6.0,"y":2.0},"gridSpriteSize":{"x":170.0,"y":286.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
+    nameFileIdTable:
+      armor_run_large_white_spaces_removed_0: 1641622529246481299
+      armor_run_large_white_spaces_removed_1: 972785427
+      armor_run_large_white_spaces_removed_10: -1121285872
+      armor_run_large_white_spaces_removed_11: 1313139025
+      armor_run_large_white_spaces_removed_2: -988846127
+      armor_run_large_white_spaces_removed_3: -1301031554
+      armor_run_large_white_spaces_removed_4: -548566259
+      armor_run_large_white_spaces_removed_5: 1716904013
+      armor_run_large_white_spaces_removed_6: -361674104
+      armor_run_large_white_spaces_removed_7: 2139687176
+      armor_run_large_white_spaces_removed_8: -957877198
+      armor_run_large_white_spaces_removed_9: -557364504
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

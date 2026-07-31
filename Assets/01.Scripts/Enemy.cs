@@ -36,7 +36,7 @@ public class Enemy : MonoBehaviour
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
         defaultMaterial = spriteRenderer.material;
-
+       
         if (hitMaterial == null)
         {
             hitMaterial = Resources.Load<Material>("M_HitEnemy");
