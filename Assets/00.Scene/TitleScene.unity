@@ -2754,13 +2754,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SFX_Manager
   sfxSource: {fileID: 1406574630}
-  playerHitSFX: {fileID: 8300000, guid: 32ce1af71ba71da42864c2f305700adb, type: 3}
-  enemyHitSFX: {fileID: 8300000, guid: ce3bb0337a4d37c48be1b764e610a137, type: 3}
-  gameOverSFX: {fileID: 8300000, guid: 9b4fe662db37a85478819a0b68ab4559, type: 3}
-  buttonClickSFX: {fileID: 8300000, guid: eeba521f27c46ad46957d0d4c2e6d45e, type: 3}
-  levelUpSFX: {fileID: 8300000, guid: d0e4c66f23f80bd4e9c2abaa22c4e01b, type: 3}
-  gameStartSfx: {fileID: 8300000, guid: bdb81a38f63e4b14cb8e8bd1c3f042e8, type: 3}
-  expSFX: {fileID: 8300000, guid: 88b12934d9886f34196cf5892338ff7d, type: 3}
+  sfxList:
+  - type: 7
+    clip: {fileID: 8300000, guid: 1de4fcc63c4cb9c408172fc79969512d, type: 3}
+  - type: 0
+    clip: {fileID: 8300000, guid: 32ce1af71ba71da42864c2f305700adb, type: 3}
+  - type: 1
+    clip: {fileID: 8300000, guid: ce3bb0337a4d37c48be1b764e610a137, type: 3}
+  - type: 2
+    clip: {fileID: 8300000, guid: 9b4fe662db37a85478819a0b68ab4559, type: 3}
+  - type: 3
+    clip: {fileID: 8300000, guid: eeba521f27c46ad46957d0d4c2e6d45e, type: 3}
+  - type: 4
+    clip: {fileID: 8300000, guid: d0e4c66f23f80bd4e9c2abaa22c4e01b, type: 3}
+  - type: 5
+    clip: {fileID: 8300000, guid: bdb81a38f63e4b14cb8e8bd1c3f042e8, type: 3}
+  - type: 6
+    clip: {fileID: 8300000, guid: 88b12934d9886f34196cf5892338ff7d, type: 3}
 --- !u!82 &1406574630
 AudioSource:
   m_ObjectHideFlags: 0

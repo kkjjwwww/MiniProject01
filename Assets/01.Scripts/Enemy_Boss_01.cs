@@ -64,6 +64,7 @@ public class Enemy_Boss_01 : Enemy_Boss
                 Vector3 targetPos = transform.position + (targetDir * dashDistance);
 
                 ShowWarningLine(targetDir);
+                SFX_Manager.instance.PlaySFX(SFXType.HuaXiong_Attack);
 
                 if (animator != null) animator.SetBool("isAttack", true);
 

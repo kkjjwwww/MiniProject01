@@ -1,4 +1,19 @@
 using UnityEngine;
+using System;
+using System.Collections.Generic;
+using Unity.VisualScripting;
+
+public enum SFXType
+{
+    PlayerHit,
+    EnemyHit,
+    GameOver,
+    ButtonClick,
+    LevelUp,
+    GameStart,
+    Exp,
+    HuaXiong_Attack
+}
 
 public class SFX_Manager : MonoBehaviour
 {
@@ -6,13 +21,16 @@ public class SFX_Manager : MonoBehaviour
 
     [SerializeField] private AudioSource sfxSource;
 
-    [SerializeField] private AudioClip playerHitSFX;
-    [SerializeField] private AudioClip enemyHitSFX;
-    [SerializeField] private AudioClip gameOverSFX;
-    [SerializeField] private AudioClip buttonClickSFX;
-    [SerializeField] private AudioClip levelUpSFX;
-    [SerializeField] private AudioClip gameStartSfx;
-    [SerializeField] private AudioClip expSFX;
+    [Serializable]
+    public struct SFXData
+    {
+        public SFXType type;
+        public AudioClip clip;
+    }
+
+    [SerializeField] private List<SFXData> sfxList;
+
+    private Dictionary<SFXType, AudioClip> sfxDictionary = new Dictionary<SFXType, AudioClip>();
 
     private int lastFrame = -1;
 
@@ -32,57 +50,46 @@ public class SFX_Manager : MonoBehaviour
         }
         float savedVolume = PlayerPrefs.GetFloat(SFX_VOLUME_KEY, 0.5f);
         sfxSource.volume = savedVolume;
+
+        InitDictianary();
     }
 
-    public void PlayPlayerHitSFX()
+    private void InitDictianary()
     {
-        if (sfxSource != null && playerHitSFX != null)
+        sfxDictionary.Clear();
+        foreach (var sfx in sfxList)
         {
-            sfxSource.PlayOneShot(playerHitSFX);
+            if (sfx.clip == null) continue;
+
+            if (!sfxDictionary.ContainsKey(sfx.type))
+            {
+                sfxDictionary.Add(sfx.type, sfx.clip);
+            }
+            else
+            {
+                Debug.Log("SFXType ม฿บน.");
+            }
+
         }
     }
-    public void PlayEnemyHitSFX()
+
+     
+    public void PlaySFX(SFXType type)
     {
-        if (sfxSource != null && enemyHitSFX != null)
+        if (sfxSource == null) return;
+
+        if (type == SFXType.EnemyHit)
         {
             if (Time.frameCount == lastFrame) return;
             lastFrame = Time.frameCount;
-            sfxSource.PlayOneShot(enemyHitSFX);
         }
-    }
-    public void PlayButtonClickSFX()
-    {
-        if (sfxSource != null && buttonClickSFX != null)
+        if (sfxDictionary.TryGetValue(type, out AudioClip clip))
         {
-            sfxSource.PlayOneShot(buttonClickSFX);
+            sfxSource.PlayOneShot(clip);
         }
-    }
-    public void PlayLevelUpSFX()
-    {
-        if (sfxSource != null && levelUpSFX != null)
+        else
         {
-            sfxSource.PlayOneShot(levelUpSFX);
-        }
-    }
-    public void PlayGameStartSFX()
-    {
-        if (sfxSource != null && gameStartSfx != null)
-        {
-            sfxSource.PlayOneShot(gameStartSfx);
-        }
-    }
-    public void PlayGameOverSFX()
-    {
-        if (sfxSource != null && gameOverSFX != null)
-        {
-            sfxSource.PlayOneShot(gameOverSFX);
-        }
-    }
-    public void PlayExpSFX()
-    {
-        if (sfxSource != null && expSFX != null)
-        {
-            sfxSource.PlayOneShot(expSFX);
+            Debug.LogWarning($"SFX_Manager {type} SFXType is not founded.");
         }
     }
     public void PlaySFX(AudioClip clip)
@@ -92,6 +99,13 @@ public class SFX_Manager : MonoBehaviour
             sfxSource.PlayOneShot(clip);
         }
     }
+    public void PlayPlayerHitSFX() => PlaySFX(SFXType.PlayerHit);
+    public void PlayEnemyHitSFX() => PlaySFX(SFXType.EnemyHit);
+    public void PlayButtonClickSFX() => PlaySFX(SFXType.ButtonClick);
+    public void PlayLevelUpSFX() => PlaySFX(SFXType.LevelUp);
+    public void PlayGameStartSFX() => PlaySFX(SFXType.GameStart);
+    public void PlayGameOverSFX() => PlaySFX(SFXType.GameOver);
+    public void PlayExpSFX() => PlaySFX(SFXType.Exp);
     public void SetVolume(float volume)
     {
         if (sfxSource != null)
