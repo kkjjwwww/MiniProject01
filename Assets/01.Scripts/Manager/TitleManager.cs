@@ -6,6 +6,10 @@ public class TitleManager : MonoBehaviour
 {
     public void GameStart()
     {
+        if (SFX_Manager.instance != null)
+        {
+            SFX_Manager.instance.PlayGameStartSFX();
+        }
         SceneManager.LoadScene(1);
     }
 

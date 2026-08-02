@@ -17,6 +17,10 @@ public class UI_Shop : MonoBehaviour
     }
     public void OpenShop()
     {
+        if (SFX_Manager.instance != null)
+        {
+            SFX_Manager.instance.PlayButtonClickSFX();
+        }
         gameObject.SetActive(true);
         RefreshUI();
     }

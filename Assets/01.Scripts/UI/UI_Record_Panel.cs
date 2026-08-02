@@ -10,6 +10,10 @@ public class UI_Record_Panel : MonoBehaviour
 
     public void OpenRecordPopUp()
     {
+        if (SFX_Manager.instance != null)
+        {
+            SFX_Manager.instance.PlayButtonClickSFX();
+        }
         recordPanel.SetActive(true);
         UpdateRecordList();
     }
